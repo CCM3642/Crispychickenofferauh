@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عروض مطعم كريسبي تشيكن</title>
+  <title>🍗 Crispy Chicken UAE</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
 
   <!-- قسم العروض -->
   <section id="offers">
-    <h2>عروض اليوم</h2>
+    <h2>🌟 عروض اليوم</h2>
     <div class="offer">
       <h3>عرض 1: 8 قطع دجاج</h3>
       <p>السعر: 20 درهم - متاح فقط يوم الاثنين والثلاثاء</p>
@@ -31,13 +31,15 @@
   <section id="contact">
     <h2>📞 بيانات الاتصال</h2>
     <p>📍 الموقع: أبوظبي - الخالدية</p>
-    <p>☎️ الهاتف: 0509021993</p>
-    <p>🌐 <a href="https://crispychicken-uae.com/#_branch94472" target="_blank">موقعنا الرسمي</a></p>
+    <p>☎️ Call Center: 600 527488</p>
+    <p>📱 Mobile: 050 188 2206</p>
+    <p>📧 Email: <a href="mailto:kenawe@crispychicken.rest">kenawe@crispychicken.rest</a></p>
+    <p>🌐 Website: <a href="https://crispychicken-uae.com" target="_blank">crispychicken-uae.com</a></p>
   </section>
 
   <!-- قسم الشكاوى -->
   <section id="complaint">
-    <h2>📝 تقديم شكوى</h2>
+    <h2>📝 تقديم شكوى أو اقتراح</h2>
     <form id="complaintForm">
       <label>الاسم:</label>
       <input type="text" name="name" required>
@@ -45,7 +47,7 @@
       <label>رقم الهاتف:</label>
       <input type="tel" name="phone" required>
 
-      <label>تفاصيل الشكوى:</label>
+      <label>تفاصيل الشكوى أو الاقتراح:</label>
       <textarea name="message" rows="4" required></textarea>
 
       <button type="submit">إرسال</button>
@@ -53,6 +55,24 @@
     <p id="formResponse"></p>
   </section>
 
-  <script src="script.js"></script>
+  <!-- قسم المتابعة على السوشيال ميديا -->
+  <section id="social">
+    <h2>🌐 تابعنا على وسائل التواصل</h2>
+    <p>
+      <a href="https://wa.me/971501882206" target="_blank">💬 WhatsApp</a> | 
+      <a href="https://instagram.com/crispychicken_uae" target="_blank">📸 Instagram</a> | 
+      <a href="https://facebook.com/crispychickenuae" target="_blank">📘 Facebook</a>
+    </p>
+  </section>
+
+  <script>
+    // تعامل مع إرسال النموذج
+    document.getElementById("complaintForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      document.getElementById("formResponse").textContent = "✅ تم استلام الشكوى، سنتواصل معك قريباً.";
+      this.reset();
+    });
+  </script>
+
 </body>
 </html>
