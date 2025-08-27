@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عروض مطعم كريسبي تشيكن</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- رأس الصفحة -->
+  <header>
+    <h1>🍗 عروض كريسبي تشيكن</h1>
+    <p>جودة - سعر - وقت</p>
+  </header>
+
+  <!-- قسم العروض -->
+  <section id="offers">
+    <h2>عروض اليوم</h2>
+    <div class="offer">
+      <h3>عرض 1: 8 قطع دجاج</h3>
+      <p>السعر: 20 درهم - متاح فقط يوم الاثنين والثلاثاء</p>
+    </div>
+    <div class="offer">
+      <h3>عرض 2: وجبة عائلية</h3>
+      <p>12 قطعة دجاج + بطاطس كبيرة + 2 مشروب - 55 درهم</p>
+    </div>
+  </section>
+
+  <!-- قسم الاتصال -->
+  <section id="contact">
+    <h2>📞 بيانات الاتصال</h2>
+    <p>📍 الموقع: أبوظبي - الخالدية</p>
+    <p>☎️ الهاتف: 0509021993</p>
+    <p>🌐 <a href="https://crispychicken-uae.com/#_branch94472" target="_blank">موقعنا الرسمي</a></p>
+  </section>
+
+  <!-- قسم الشكاوى -->
+  <section id="complaint">
+    <h2>📝 تقديم شكوى</h2>
+    <form id="complaintForm">
+      <label>الاسم:</label>
+      <input type="text" name="name" required>
+
+      <label>رقم الهاتف:</label>
+      <input type="tel" name="phone" required>
+
+      <label>تفاصيل الشكوى:</label>
+      <textarea name="message" rows="4" required></textarea>
+
+      <button type="submit">إرسال</button>
+    </form>
+    <p id="formResponse"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
