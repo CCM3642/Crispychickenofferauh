@@ -2,201 +2,30 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>Crispy Chicken UAE Offers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crispy Chicken UAE</title>
     <style>
         body {
-            font-family: 'Cairo', Arial, sans-serif;
-            background: #fffbe7;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #fff;
             margin: 0;
             padding: 0;
-            transition: background 0.3s ease;
-        }
-
-        header {
-            background: #ffcb05;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #d93900;
-        }
-
-        header img {
-            max-width: 120px;
-            margin-bottom: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        h1 {
-            margin: 0;
-            color: #d93900;
-        }
-
-        h2 {
-            color: #ffcb05;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .lang-switch {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .lang-switch button {
-            padding: 8px 18px;
-            border: 1px solid #d93900;
-            background: #fff;
-            color: #d93900;
-            border-radius: 6px;
-            font-weight: bold;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .lang-switch button.active {
-            background: #d93900;
-            color: #fff;
-        }
-
-        section {
-            max-width: 600px;
-            margin: 30px auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px #eee;
-            padding: 20px;
-        }
-
-        .offers {
-            margin-bottom: 20px;
-        }
-
-        .offer {
-            background: #fff;
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transform: perspective(600px) rotateX(0deg);
-            transition: all 0.4s ease-in-out;
-            border-left: 6px solid #d93900;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #333;
-            position: relative;
-        }
-
-        .offer:hover {
-            transform: perspective(600px) rotateX(4deg) scale(1.02);
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-btns {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .contact-btns a {
-            background: #25d366;
-            color: #fff;
-            padding: 10px 14px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .contact-btns a.whatsapp {
-            background: #25d366;
-        }
-
-        .contact-btns a.facebook {
-            background: #3b5998;
-        }
-
-        .contact-btns a.instagram {
-            background: #e4405f;
-        }
-
-        .contact-btns a.tiktok {
-            background: #000;
-        }
-
-        .contact-btns a.website {
-            background: #ffcb05;
-            color: #d93900;
-        }
-
-        .hotline {
-            background: #d93900;
-            color: #fff;
-            padding: 14px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.15em;
-            margin-bottom: 16px;
-            letter-spacing: 2px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        input,
-        textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-        }
-
-        button {
-            background: #d93900;
-            color: #fff;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        button:hover {
-            background: #ffcb05;
-            color: #d93900;
-        }
-
-        .admin-area {
-            background: #fffbe7;
-            border: 2px dashed #d93900;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-
-        .admin-login {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .admin-login input {
-            padding: 6px;
-            margin: 0 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
         }
 
         .hide {
             display: none;
+        }
+
+        .active {
+            font-weight: bold;
+            background-color: #d93900;
+            color: white;
+        }
+
+        header {
+            padding: 20px;
         }
 
         #promo-banner {
@@ -206,6 +35,7 @@
             padding: 10px;
             font-weight: bold;
             animation: slide 10s infinite linear;
+            white-space: nowrap;
         }
 
         @keyframes slide {
@@ -218,6 +48,71 @@
             }
         }
 
+        .lang-switch {
+            margin: 10px 0;
+        }
+
+        .lang-switch button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .admin-login,
+        .admin-area {
+            margin: 20px;
+        }
+
+        .offers {
+            margin: 20px;
+            font-size: 1.2em;
+        }
+
+        .hotline {
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .contact-btns {
+            margin: 20px;
+        }
+
+        .contact-btns a {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 15px;
+            color: white;
+            background-color: #555;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .contact-btns .whatsapp { background-color: #25d366; }
+        .contact-btns .facebook { background-color: #3b5998; }
+        .contact-btns .instagram { background-color: #c13584; }
+        .contact-btns .tiktok { background-color: #000; }
+        .contact-btns .website { background-color: #d93900; }
+
+        form {
+            margin: 30px auto;
+            max-width: 500px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        form button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #d93900;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
         .error {
             color: red;
             font-size: 1.2em;
@@ -226,6 +121,7 @@
     </style>
 </head>
 <body>
+
     <div id="promo-banner">
         أحدث العروض لدينا - تابعنا للحصول على أفضل الأسعار!
     </div>
@@ -244,11 +140,14 @@
     </div>
 
     <section>
+
+        <!-- تسجيل دخول الأدمن -->
         <div id="admin-login" class="admin-login">
             <input type="password" id="admin-pass" placeholder="كلمة مرور الأدمن / Admin password">
             <button onclick="loginAdmin()">دخول الأدمن / Admin Login</button>
         </div>
 
+        <!-- منطقة الأدمن -->
         <div id="admin-area" class="admin-area hide">
             <h3 id="admin-title-ar">تعديل العروض</h3>
             <h3 id="admin-title-en" class="hide">Edit Offers</h3>
@@ -257,18 +156,20 @@
             <button onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
         </div>
 
+        <!-- العروض الحالية -->
         <div class="offers" id="offers-list">
             <!-- العروض ستظهر هنا -->
         </div>
 
+        <!-- الخط الساخن -->
         <div class="hotline" id="hotline-ar">
             الخط الساخن: 600527488
         </div>
-
         <div class="hotline hide" id="hotline-en">
             Hotline: 600527488
         </div>
 
+        <!-- أزرار التواصل -->
         <div class="contact-btns">
             <a class="whatsapp" href="https://wa.me/971501882206?text=أرغب%20في%20طلب%20أوردر%20أو%20عرض" target="_blank" id="whatsapp-ar">واتساب</a>
             <a class="whatsapp hide" href="https://wa.me/971501882206?text=I%20want%20to%20order%20or%20inquire%20about%20an%20offer" target="_blank" id="whatsapp-en">WhatsApp</a>
@@ -278,6 +179,7 @@
             <a class="website" href="https://crispychicken-uae.com/" target="_blank">الموقع الرسمي</a>
         </div>
 
+        <!-- نموذج الشكاوى والاقتراحات -->
         <form action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
             <h3 id="form-title-ar">إرسال شكوى أو اقتراح</h3>
             <h3 id="form-title-en" class="hide">Send Complaint or Suggestion</h3>
@@ -297,7 +199,8 @@
 
             Object.keys(elements).forEach(language => {
                 elements[language].forEach(id => {
-                    document.getElementById(id).style.display = language === lang ? 'block' : 'none';
+                    const el = document.getElementById(id);
+                    if (el) el.style.display = (language === lang) ? 'block' : 'none';
                 });
             });
 
@@ -321,9 +224,15 @@
         }
 
         function updateOffers() {
-            // التحديثات ستكون هنا حسب المتطلبات
+            const content = document.getElementById('offers-admin').value;
+            document.getElementById('offers-list').innerText = content;
             alert('تم تحديث العروض بنجاح');
         }
+
+        // اجعل اللغة الافتراضية عربية
+        window.onload = function() {
+            setLang('ar');
+        };
     </script>
 </body>
 </html>
