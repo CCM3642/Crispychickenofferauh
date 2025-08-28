@@ -2,113 +2,180 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
+    <title>Crispy Chicken UAE Offers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>عرض يوم الدجاج</title>
     <style>
-        body {
-            font-family: 'Cairo', Arial, sans-serif;
-            background-color: #fffbe7;
-            margin: 0;
-            padding: 0;
-        }
-        .offer-container {
-            background: linear-gradient(145deg, #ffcb05, #d93900);
-            color: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            margin: 50px auto;
-            width: 90%;
-            max-width: 650px;
-            transform: perspective(200px) rotateY(15deg);
-        }
-        .offer-container h1 {
-            font-size: 2.8em;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-        }
-        .offer-container p {
-            font-size: 1.3em;
-            line-height: 1.5;
-            margin: 15px 0;
-        }
-        .offer-img {
-            max-width: 300px;
+        body { font-family: 'Cairo', Arial, sans-serif; background: #fffbe7; margin: 0; padding: 0; }
+        header { background: #ffcb05; padding: 20px; text-align: center; }
+        header img { max-width: 120px; margin-bottom: 10px; display:block; margin-left:auto; margin-right:auto;}
+        h1 { margin: 0; color: #d93900; }
+        h2 { color: #ffcb05; font-size: 1.2em; font-weight: bold; margin-top: 10px;}
+        .lang-switch { text-align: center; margin-bottom: 15px; }
+        .lang-switch button { padding: 8px 18px; border: 1px solid #d93900; background: #fff; color: #d93900; border-radius: 6px; font-weight: bold; margin: 0 5px; cursor: pointer;}
+        .lang-switch button.active { background: #d93900; color: #fff; }
+        section { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 6px #eee; padding: 20px;}
+        .offers { margin-bottom: 20px; }
+        .offer {
+            background: #fff;
+            padding: 16px;
             border-radius: 12px;
-            margin: 20px auto;
-            display: block;
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
-        .offer-img:hover {
-            transform: scale(1.1);
-        }
-        .offer-price {
-            font-size: 3em;
+            margin-bottom: 16px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transform: perspective(600px) rotateX(0deg);
+            transition: all 0.4s ease-in-out;
+            border-left: 6px solid #d93900;
+            font-size: 1.1em;
             font-weight: bold;
-            color: #ffcb05;
-            margin-top: 20px;
+            color: #333;
+            position: relative;
         }
-        .offer-details {
-            margin-top: 25px;
-            font-size: 1.2em;
-            background-color: #ffcb05;
-            padding: 15px;
+        .offer:hover {
+            transform: perspective(600px) rotateX(4deg) scale(1.02);
+            box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+        }
+        .contact-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+        .contact-btns a {
+            background: #25d366; color: #fff; padding: 10px 14px; border-radius: 6px; text-decoration: none;
+            font-weight: bold; transition: background 0.3s;
+        }
+        .contact-btns a.whatsapp { background: #25d366; }
+        .contact-btns a.facebook { background: #3b5998; }
+        .contact-btns a.instagram { background: #e4405f; }
+        .contact-btns a.tiktok { background: #000; }
+        .contact-btns a.website {
+            background: #ffcb05;
             color: #d93900;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
-        .offer-details p {
-            margin: 0;
+        .hotline { background: #d93900; color: #fff; padding: 14px; border-radius: 8px; text-align: center; font-size: 1.15em; margin-bottom: 16px; letter-spacing: 2px;}
+        form { display: flex; flex-direction: column; gap: 8px; }
+        input, textarea {
+            padding: 10px; border: 1px solid #ccc; border-radius: 6px;
+            font-size: 1em;
         }
-        .delivery-info {
-            margin-top: 20px;
-            font-size: 1.2em;
-            background-color: #25d366;
-            padding: 12px;
-            color: white;
-            border-radius: 6px;
-            font-weight: bold;
+        button { background: #d93900; color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 1em; cursor: pointer; }
+        button:hover { background: #ffcb05; color: #d93900; }
+        .admin-area { background: #fffbe7; border: 2px dashed #d93900; padding: 15px; margin-bottom: 20px; border-radius: 10px;}
+        .admin-login { text-align: center; margin-bottom: 20px;}
+        .admin-login input { padding: 6px; margin: 0 5px; border-radius: 5px; border: 1px solid #ccc;}
+        .hide { display: none;}
+        #promo-banner {
+            background: #d93900; color: white; text-align: center; padding: 10px; font-weight: bold;
+            animation: slide 10s infinite linear;
         }
-        .call-btn {
-            background-color: #3b5998;
-            color: white;
-            padding: 14px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 15px;
-            display: inline-block;
-            transition: background-color 0.3s ease;
-        }
-        .call-btn:hover {
-            background-color: #2d4373;
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
 <body>
-
-    <div class="offer-container">
-        <h1>عرض يوم الدجاج</h1>
-        <p>استمتع بأشهى وجبة دجاج لذيذة مع العائلة والأصدقاء!</p>
-        <img src="https://via.placeholder.com/300x200.png?text=Chicken+Offer" alt="عرض الدجاج" class="offer-img">
-        <div class="offer-price">
-            فقط 20 درهم
-        </div>
-        <div class="offer-details">
-            <p>8 قطع دجاج <br> 2 صوص ثوم</p>
-        </div>
-        <div class="delivery-info">
-            <p>مواعيد العرض:</p>
-            <p>الإثنين 1 سبتمبر 2029</p>
-            <p>الثلاثاء 2 سبتمبر 2025</p>
-        </div>
-        <a href="tel:+971501882206" class="call-btn">للطلب والتوصيل اتصل بـ حسن</a>
+    <div id="promo-banner">
+        أحدث العروض لدينا - تابعنا للحصول على أفضل الأسعار!
     </div>
 
+    <header>
+        <img src="https://github.com/CCM3642/Crispychickenofferauh/assets/1" alt="شعار كريسبي تشيكن UAE">
+        <h1 id="title-ar">Crispy Chicken UAE</h1>
+        <h1 id="title-en" class="hide">Crispy Chicken UAE</h1>
+        <p id="sub-ar">استمتع بأفضل العروض وتواصل معنا مباشرة!</p>
+        <p id="sub-en" class="hide">Enjoy the best offers and contact us directly!</p>
+    </header>
+    <div class="lang-switch">
+        <button id="lang-ar" class="active" onclick="setLang('ar')">عربي</button>
+        <button id="lang-en" onclick="setLang('en')">EN</button>
+    </div>
+    <section>
+        <!-- منطقة الأدمن -->
+        <div id="admin-login" class="admin-login">
+            <input type="password" id="admin-pass" placeholder="كلمة مرور الأدمن / Admin password">
+            <button onclick="loginAdmin()">دخول الأدمن / Admin Login</button>
+        </div>
+        <div id="admin-area" class="admin-area hide">
+            <h3 id="admin-title-ar">تعديل العروض</h3>
+            <h3 id="admin-title-en" class="hide">Edit Offers</h3>
+            <textarea id="offers-admin" rows="6" style="width:100%;"></textarea><br>
+            <button onclick="updateOffers()">تحديث العروض / Update Offers</button>
+            <button onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
+        </div>
+        <!-- العروض -->
+        <div class="offers" id="offers-list"></div>
+        <div class="hotline" id="hotline-ar">
+            الخط الساخن: 600527488
+        </div>
+        <div class="hotline hide" id="hotline-en">
+            Hotline: 600527488
+        </div>
+        <div class="contact-btns">
+            <a class="whatsapp" href="https://wa.me/971501882206?text=أرغب%20في%20طلب%20أوردر%20أو%20عرض" target="_blank" id="whatsapp-ar">واتساب</a>
+            <a class="whatsapp hide" href="https://wa.me/971501882206?text=I%20want%20to%20order%20or%20inquire%20about%20an%20offer" target="_blank" id="whatsapp-en">WhatsApp</a>
+            <a class="facebook" href="https://www.facebook.com/share/1Av1jWFRLa/?mibextid=wwXIfr" target="_blank">فيسبوك</a>
+            <a class="instagram" href="https://www.instagram.com/crispychickenae/?utm_source=ig_web_button_share_sheet" target="_blank">إنستجرام</a>
+            <a class="tiktok" href="https://www.tiktok.com/@crispychicken.ae?_t=ZS-8zEwXQ8Aq4G&_r=1" target="_blank">تيك توك</a>
+            <a class="website" href="https://crispychicken-uae.com/" target="_blank">الموقع الرسمي</a>
+        </div>
+        <form action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
+            <h3 id="form-title-ar">إرسال شكوى أو اقتراح</h3>
+            <h3 id="form-title-en" class="hide">Send Complaint or Suggestion</h3>
+            <input type="text" name="name" id="name-input" placeholder="الاسم" required>
+            <textarea name="message" rows="4" id="message-input" placeholder="اكتب شكواك أو اقتراحك هنا..." required></textarea>
+            <button type="submit" id="submit-ar">إرسال</button>
+            <button type="submit" id="submit-en" class="hide">Send</button>
+        </form>
+    </section>
+    <script>
+        function setLang(lang) {
+            if (lang === 'ar') {
+                document.getElementById("title-ar").style.display = "block";
+                document.getElementById("title-en").style.display = "none";
+                document.getElementById("sub-ar").style.display = "block";
+                document.getElementById("sub-en").style.display = "none";
+                document.getElementById("lang-ar").classList.add('active');
+                document.getElementById("lang-en").classList.remove('active');
+                document.getElementById("hotline-ar").style.display = "block";
+                document.getElementById("hotline-en").style.display = "none";
+                document.getElementById("whatsapp-ar").style.display = "inline-block";
+                document.getElementById("whatsapp-en").style.display = "none";
+                document.getElementById("form-title-ar").style.display = "block";
+                document.getElementById("form-title-en").style.display = "none";
+                document.getElementById("submit-ar").style.display = "inline-block";
+                document.getElementById("submit-en").style.display = "none";
+            } else {
+                document.getElementById("title-ar").style.display = "none";
+                document.getElementById("title-en").style.display = "block";
+                document.getElementById("sub-ar").style.display = "none";
+                document.getElementById("sub-en").style.display = "block";
+                document.getElementById("lang-en").classList.add('active');
+                document.getElementById("lang-ar").classList.remove('active');
+                document.getElementById("hotline-ar").style.display = "none";
+                document.getElementById("hotline-en").style.display = "block";
+                document.getElementById("whatsapp-ar").style.display = "none";
+                document.getElementById("whatsapp-en").style.display = "inline-block";
+                document.getElementById("form-title-ar").style.display = "none";
+                document.getElementById("form-title-en").style.display = "block";
+                document.getElementById("submit-ar").style.display = "none";
+                document.getElementById("submit-en").style.display = "inline-block";
+            }
+        }
+        
+        function loginAdmin() {
+            const password = document.getElementById('admin-pass').value;
+            if (password === 'ccm123') {
+                document.getElementById('admin-area').style.display = 'block';
+                document.getElementById('admin-login').style.display = 'none';
+            } else {
+                alert('كلمة مرور غير صحيحة');
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('admin-area').style.display = 'none';
+            document.getElementById('admin-login').style.display = 'block';
+        }
+        
+        function updateOffers() {
+            // وضع التحديثات هنا
+            alert('تم تحديث العروض بنجاح');
+        }
+    </script>
 </body>
 </html>
