@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body { font-family: 'Cairo', Arial, sans-serif; background: #fffbe7; margin: 0; padding: 0; }
+        <script>
+  // Close / remember dismissal
+  (function(){
+    const key = 'promo_closed_v1';
+    const bar = document.querySelector('.promo-bar');
+    if(localStorage.getItem(key)==='1' && bar){ bar.style.display='none'; }
+    document.addEventListener('click', function(e){
+      if(e.target && e.target.classList.contains('promo-close')){
+        bar.style.display='none';
+        localStorage.setItem(key,'1');
+      }
+    });
+  })();
+</script>
         header { background: #ffcb05; padding: 20px; text-align: center; }
         header img { max-width: 120px; margin-bottom: 10px; display:block; margin-left:auto; margin-right:auto;}
         h1 { margin: 0; color: #d93900; }
