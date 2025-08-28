@@ -1,301 +1,110 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <title>عروض الدجاج المقرمش</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { font-family: 'Cairo', Arial, sans-serif; background: #fffbe7; margin: 0; padding: 0; }
-        <script>
-  // Close / remember dismissal
-  (function(){
-    const key = 'promo_closed_v1';
-    const bar = document.querySelector('.promo-bar');
-    if(localStorage.getItem(key)==='1' && bar){ bar.style.display='none'; }
-    document.addEventListener('click', function(e){
-      if(e.target && e.target.classList.contains('promo-close')){
-        bar.style.display='none';
-        localStorage.setItem(key,'1');
-      }
-    });
-  })();
-</script>
-        header { background: #ffcb05; padding: 20px; text-align: center; }
-        header img { max-width: 120px; margin-bottom: 10px; display:block; margin-left:auto; margin-right:auto;}
-        h1 { margin: 0; color: #d93900; }
-        .lang-switch { text-align: center; margin-bottom: 15px; }
-        .lang-switch button { padding: 8px 18px; border: 1px solid #d93900; background: #fff; color: #d93900; border-radius: 6px; font-weight: bold; margin: 0 5px; cursor: pointer;}
-        .lang-switch button.active { background: #d93900; color: #fff; }
-        section { max-width: 650px; margin: 30px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px #eee; padding: 24px;}
-        .offers { margin-bottom: 24px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;}
-        .offer-card {
-            background: linear-gradient(135deg, #ffe7b3 70%, #ffcb05 100%);
-            border: 2px solid #d93900;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px #f6d36b;
-            padding: 24px 20px 18px 20px;
-            min-width: 220px;
-            max-width: 310px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            transition: box-shadow 0.3s;
-        }
-        .offer-card:hover { box-shadow: 0 8px 24px #ffcb05; }
-        .offer-title { font-size: 1.1em; font-weight: bold; color: #d93900; margin-bottom: 8px; text-align:center;}
-        .offer-desc { color: #333; margin-bottom: 14px; text-align:center;}
-        .timer { font-size: 1em; color: #fff; background: #d93900; border-radius: 8px; padding: 5px 12px; margin-bottom: 10px;}
-        .hotline { background: #d93900; color: #fff; padding: 14px; border-radius: 8px; text-align: center; font-size: 1.12em; margin-bottom: 16px; letter-spacing: 2px;}
-        .office-address {margin: 32px auto 20px auto; text-align: center;}
-        .office-address h2 {color:#d93900; margin-bottom:8px;}
-        .office-address .address-box {font-size:1.12em; color:#333; background:#fffbe7; border:2px solid #d93900; border-radius:10px; display:inline-block; padding:14px 22px;}
-        .contact-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
-        .contact-btns a {
-            background: #25d366; color: #fff; padding: 10px 14px; border-radius: 6px; text-decoration: none;
-            font-weight: bold; transition: background 0.3s;
-        }
-        .contact-btns a.whatsapp { background: #25d366; }
-        .contact-btns a.facebook { background: #3b5998; }
-        .contact-btns a.instagram { background: #e4405f; }
-        .contact-btns a.tiktok { background: #000; }
-        form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;}
-        input, textarea {
-            padding: 10px; border: 1px solid #ccc; border-radius: 6px;
-            font-size: 1em;
-        }
-        button { background: #d93900; color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 1em; cursor: pointer; }
-        button:hover { background: #ffcb05; color: #d93900; }
-        .admin-area { background: #fffbe7; border: 2px dashed #d93900; padding: 15px; margin-top: 35px; margin-bottom: 16px; border-radius: 10px;}
-        .admin-login { text-align: center; margin-bottom: 20px;}
-        .admin-login input { padding: 6px; margin: 0 5px; border-radius: 5px; border: 1px solid #ccc;}
-        .admin-fields {display:flex; gap:18px; flex-wrap:wrap; justify-content:center;}
-        .admin-field {background:#fff; border:1.5px solid #d93900; border-radius:10px; padding:12px; margin-bottom: 10px; min-width:220px; max-width:320px;}
-        .admin-field label {font-weight:bold; color:#d93900;}
-        .hide { display: none;}
-        @media(max-width: 800px) {
-            section {max-width: 98vw;}
-            .offers {gap: 12px;}
-            .offer-card {min-width:180px; max-width:99vw;}
-            .admin-fields {gap:8px;}
-            .admin-field {min-width:140px;}
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>عروض الدجاج المقرمش</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body { font-family: 'Cairo', Arial, sans-serif; background: #fffbe7; margin: 0; padding: 0; }
+    header { background: #ffcb05; padding: 20px; text-align: center; }
+    header img { max-width: 120px; margin-bottom: 10px; display:block; margin-left:auto; margin-right:auto;}
+    h1 { margin: 0; color: #d93900; }
+    .promo-bar {
+      background: #d93900; color: #fff; padding: 12px 20px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-weight: bold;
+    }
+    .promo-close {
+      background: transparent; border: none; font-size: 1.4em; color: #fff; cursor: pointer;
+    }
+    .lang-switch { text-align: center; margin-bottom: 15px; }
+    .lang-switch button { padding: 8px 18px; border: 1px solid #d93900; background: #fff; color: #d93900; border-radius: 6px; font-weight: bold; margin: 0 5px; cursor: pointer;}
+    .lang-switch button.active { background: #d93900; color: #fff; }
+    section { max-width: 650px; margin: 30px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px #eee; padding: 24px;}
+    .offers { margin-bottom: 24px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;}
+    .offer-card {
+      background: linear-gradient(135deg, #ffe7b3 70%, #ffcb05 100%);
+      border: 2px solid #d93900;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px #f6d36b;
+      padding: 24px 20px 18px 20px;
+      min-width: 220px;
+      max-width: 310px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: box-shadow 0.3s;
+    }
+    .offer-card:hover { box-shadow: 0 8px 24px #ffcb05; }
+    .offer-title { font-size: 1.1em; font-weight: bold; color: #d93900; margin-bottom: 8px; text-align:center;}
+    .offer-desc { color: #333; margin-bottom: 14px; text-align:center;}
+    .timer { font-size: 1em; color: #fff; background: #d93900; border-radius: 8px; padding: 5px 12px; margin-bottom: 10px;}
+    .hotline { background: #d93900; color: #fff; padding: 14px; border-radius: 8px; text-align: center; font-size: 1.12em; margin-bottom: 16px; letter-spacing: 2px;}
+    .office-address {margin: 32px auto 20px auto; text-align: center;}
+    .office-address h2 {color:#d93900; margin-bottom:8px;}
+    .office-address .address-box {font-size:1.12em; color:#333; background:#fffbe7; border:2px solid #d93900; border-radius:10px; display:inline-block; padding:14px 22px;}
+    .contact-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+    .contact-btns a {
+      padding: 10px 14px; border-radius: 6px; text-decoration: none;
+      font-weight: bold; transition: background 0.3s;
+    }
+    .contact-btns a.whatsapp { background: #25d366; color: #fff; }
+    .contact-btns a.facebook { background: #3b5998; color: #fff; }
+    .contact-btns a.instagram { background: #e4405f; color: #fff; }
+    .contact-btns a.tiktok { background: #000; color: #fff; }
+    form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;}
+    input, textarea {
+      padding: 10px; border: 1px solid #ccc; border-radius: 6px;
+      font-size: 1em;
+    }
+    button { background: #d93900; color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 1em; cursor: pointer; }
+    button:hover { background: #ffcb05; color: #d93900; }
+    .admin-area { background: #fffbe7; border: 2px dashed #d93900; padding: 15px; margin-top: 35px; margin-bottom: 16px; border-radius: 10px;}
+    .admin-login { text-align: center; margin-bottom: 20px;}
+    .admin-login input { padding: 6px; margin: 0 5px; border-radius: 5px; border: 1px solid #ccc;}
+    .admin-fields {display:flex; gap:18px; flex-wrap:wrap; justify-content:center;}
+    .admin-field {background:#fff; border:1.5px solid #d93900; border-radius:10px; padding:12px; margin-bottom: 10px; min-width:220px; max-width:320px;}
+    .admin-field label {font-weight:bold; color:#d93900;}
+    .hide { display: none;}
+    @media(max-width: 800px) {
+      section {max-width: 98vw;}
+      .offers {gap: 12px;}
+      .offer-card {min-width:180px; max-width:99vw;}
+      .admin-fields {gap:8px;}
+      .admin-field {min-width:140px;}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="https://github.com/CCM3642/Crispychickenofferauh/assets/1" alt="شعار الدجاج المقرمش">
-        <h1 id="title-ar">عروض الدجاج المقرمش</h1>
-        <h1 id="title-en" class="hide">Crispy Chicken Offers</h1>
-        <p id="sub-ar">استمتع بأفضل العروض وتواصل معنا مباشرة!</p>
-        <p id="sub-en" class="hide">Enjoy the best offers and contact us directly!</p>
-    </header>
-    <div class="lang-switch">
-        <button id="lang-ar" class="active" onclick="setLang('ar')">عربي</button>
-        <button id="lang-en" onclick="setLang('en')">EN</button>
-    </div>
-    <section>
-        <div class="offers" id="offers-list"></div>
-        <div class="hotline" id="hotline-ar">
-            الخط الساخن: 600527488
-        </div>
-        <div class="hotline hide" id="hotline-en">
-            Hotline: 600527488
-        </div>
-        <div class="office-address">
-            <h2>المكتب الرئيسي كرسبي تشيكن - الإمارات</h2>
-            <div class="address-box">
-                الإمارات العربية المتحدة - عجمان<br>
-                شارع الشيخ خليفة بن زايد<br>
-                بجوار جمعية عجمان التعاونية
-            </div>
-        </div>
-        <div class="contact-btns">
-            <a class="whatsapp" href="https://wa.me/971501882206?text=أرغب في طلب أوردر/عرض" target="_blank" id="whatsapp-ar">واتساب</a>
-            <a class="whatsapp hide" href="https://wa.me/971501882206?text=I want to order/an offer" target="_blank" id="whatsapp-en">WhatsApp</a>
-            <a class="facebook" href="https://www.facebook.com/share/1Av1jWFRLa/?mibextid=wwXIfr" target="_blank">فيسبوك</a>
-            <a class="instagram" href="https://www.instagram.com/crispychickenae/?utm_source=ig_web_button_share_sheet" target="_blank">إنستجرام</a>
-            <a class="tiktok" href="https://www.tiktok.com/@crispychicken.ae?_t=ZS-8zEwXQ8Aq4G&_r=1" target="_blank">تيك توك</a>
-        </div>
-        <form action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
-            <h3 id="form-title-ar">إرسال شكوى أو اقتراح</h3>
-            <h3 id="form-title-en" class="hide">Send Complaint or Suggestion</h3>
-            <input type="text" name="name" id="name-input" placeholder="الاسم" required>
-            <textarea name="message" rows="4" id="message-input" placeholder="اكتب شكواك أو اقتراحك هنا..." required></textarea>
-            <button type="submit" id="submit-ar">إرسال</button>
-            <button type="submit" id="submit-en" class="hide">Send</button>
-        </form>
-        <!-- منطقة الأدمن - أسفل الصفحة -->
-        <div id="admin-login" class="admin-login">
-            <input type="password" id="admin-pass" placeholder="كلمة مرور الأدمن / Admin password">
-            <button onclick="loginAdmin()">دخول الأدمن / Admin Login</button>
-        </div>
-        <div id="admin-area" class="admin-area hide">
-            <h3 id="admin-title-ar">تعديل العروض</h3>
-            <h3 id="admin-title-en" class="hide">Edit Offers</h3>
-            <form id="admin-form" onsubmit="saveOffers(); return false;">
-                <div class="admin-fields">
-                    <div class="admin-field">
-                        <label id="offer1-label-ar">نص العرض الأول</label>
-                        <label id="offer1-label-en" class="hide">Offer 1 Text</label>
-                        <textarea id="offer1-text" rows="2"></textarea>
-                        <label id="offer1-time-label-ar">وقت انتهاء العرض (ساعات)</label>
-                        <label id="offer1-time-label-en" class="hide">Offer End (hours)</label>
-                        <input type="number" id="offer1-hours" min="0" value="5">
-                    </div>
-                    <div class="admin-field">
-                        <label id="offer2-label-ar">نص العرض الثاني</label>
-                        <label id="offer2-label-en" class="hide">Offer 2 Text</label>
-                        <textarea id="offer2-text" rows="2"></textarea>
-                        <label id="offer2-time-label-ar">وقت انتهاء العرض (ساعات)</label>
-                        <label id="offer2-time-label-en" class="hide">Offer End (hours)</label>
-                        <input type="number" id="offer2-hours" min="0" value="12">
-                    </div>
-                </div>
-                <div style="text-align:center;">
-                    <button type="submit" style="margin-top:10px;">حفظ / Save</button>
-                    <button type="button" onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
-                </div>
-            </form>
-        </div>
-    </section>
-    <script>
-        // العروض: النص + عدد الساعات للعرض
-        let offers_ar = [
-            {desc: "دجاج مقرمش + بطاطس + مشروب بـ 25 درهم فقط!", hours: 5},
-            {desc: "خصم 20% على جميع الطلبات فوق 50 درهم", hours: 12}
-        ];
-        let offers_en = [
-            {desc: "Crispy chicken + fries + drink for only 25 AED!", hours: 5},
-            {desc: "20% discount on orders above 50 AED", hours: 12}
-        ];
+  <!-- 🔶 Promo Bar -->
+  <div class="promo-bar" role="status" aria-live="polite">
+    <span class="promo-text">🔥 Something Crispy is Coming Soon 🔥</span>
+    <button class="promo-close" aria-label="Close promo">×</button>
+  </div>
 
-        let timers = [];
-        let lang = "ar";
-        let isAdmin = false;
-        let adminPassword = "crispyadmin"; // يمكنك تغييره
+  <!-- باقي الصفحة (ضع هنا الكود الموجود في <body> من النسخة السابقة بدون تغيير) -->
 
-        // عداد تنازلي للعرض (timer)
-        function startTimers() {
-            timers.forEach(clearInterval);
-            timers = [];
-            let arr = (lang === "ar") ? offers_ar : offers_en;
-            arr.forEach((offer, idx) => {
-                let startHours = offer.hours;
-                let offerStart = Date.now();
-                let timerId = setInterval(function(){
-                    let timerElem = document.getElementById('timer-'+idx);
-                    let now = Date.now();
-                    let leftMs = offerStart + startHours*3600000 - now;
-                    if (leftMs > 0) {
-                        let h = Math.floor(leftMs / (1000*60*60));
-                        let m = Math.floor((leftMs % (1000*60*60)) / (1000*60));
-                        let s = Math.floor((leftMs % (1000*60)) / 1000);
-                        timerElem.textContent = lang === "ar" 
-                            ? `ينتهي خلال: ${h}h ${m}m ${s}s`
-                            : `Ends in: ${h}h ${m}m ${s}s`;
-                        timerElem.style.background = "#d93900";
-                    } else {
-                        timerElem.textContent = lang === "ar" ? "انتهى العرض" : "Offer expired";
-                        timerElem.style.background = "#999";
-                    }
-                }, 1000);
-                timers.push(timerId);
-            });
-        }
+  <!-- 🔽 سكريبت JS -->
+  <script>
+    // 🔒 Promo Close Memory
+    (function(){
+      const key = 'promo_closed_v1';
+      document.addEventListener('DOMContentLoaded', function(){
+        const bar = document.querySelector('.promo-bar');
+        if(localStorage.getItem(key)==='1' && bar){ bar.style.display='none'; }
+        document.addEventListener('click', function(e){
+          if(e.target && e.target.classList.contains('promo-close')){
+            if (bar) bar.style.display='none';
+            localStorage.setItem(key,'1');
+          }
+        });
+      });
+    })();
+  </script>
 
-        function displayOffers() {
-            let list = document.getElementById('offers-list');
-            list.innerHTML = "";
-            let arr = (lang === "ar") ? offers_ar : offers_en;
-            arr.forEach((o, idx) => {
-                let card = document.createElement('div');
-                card.className = "offer-card";
-                card.innerHTML = `
-                    <div class="offer-title">${lang === "ar" ? "عرض رقم " + (idx+1) : "Offer #" + (idx+1)}</div>
-                    <div class="offer-desc">${o.desc}</div>
-                    <div class="timer" id="timer-${idx}"></div>
-                `;
-                list.appendChild(card);
-            });
-            startTimers();
-        }
+  <!-- 🔁 كود JS كامل للعروض، اللغات، الأدمن، إلخ (كما في الكود السابق لديك) -->
 
-        function setLang(l) {
-            lang = l;
-            document.getElementById('lang-ar').classList.toggle("active", l === "ar");
-            document.getElementById('lang-en').classList.toggle("active", l === "en");
-            document.getElementById('title-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('title-en').classList.toggle("hide", l !== "en");
-            document.getElementById('sub-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('sub-en').classList.toggle("hide", l !== "en");
-            document.getElementById('hotline-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('hotline-en').classList.toggle("hide", l !== "en");
-            document.getElementById('whatsapp-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('whatsapp-en').classList.toggle("hide", l !== "en");
-            document.getElementById('form-title-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('form-title-en').classList.toggle("hide", l !== "en");
-            document.getElementById('submit-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('submit-en').classList.toggle("hide", l !== "en");
-            // admin labels
-            document.getElementById('admin-title-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('admin-title-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer1-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer1-label-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer2-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer2-label-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer1-time-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer1-time-label-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer2-time-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer2-time-label-en').classList.toggle("hide", l !== "en");
-            document.getElementById('name-input').placeholder = (l === "ar" ? "الاسم" : "Name");
-            document.getElementById('message-input').placeholder = (l === "ar" ? "اكتب شكواك أو اقتراحك هنا..." : "Write your complaint or suggestion here...");
-            displayOffers();
-        }
-
-        // منطقة الأدمن
-        function loginAdmin() {
-            let pass = document.getElementById('admin-pass').value;
-            if (pass === adminPassword) {
-                isAdmin = true;
-                document.getElementById('admin-login').classList.add('hide');
-                document.getElementById('admin-area').classList.remove('hide');
-                let arr = (lang === "ar") ? offers_ar : offers_en;
-                document.getElementById('offer1-text').value = arr[0].desc;
-                document.getElementById('offer1-hours').value = arr[0].hours;
-                document.getElementById('offer2-text').value = arr[1].desc;
-                document.getElementById('offer2-hours').value = arr[1].hours;
-            } else {
-                alert(lang === "ar" ? "كلمة المرور غير صحيحة" : "Wrong password");
-            }
-        }
-        function logoutAdmin() {
-            isAdmin = false;
-            document.getElementById('admin-login').classList.remove('hide');
-            document.getElementById('admin-area').classList.add('hide');
-        }
-        function saveOffers() {
-            let arr = [
-                {desc: document.getElementById('offer1-text').value, hours: Number(document.getElementById('offer1-hours').value)},
-                {desc: document.getElementById('offer2-text').value, hours: Number(document.getElementById('offer2-hours').value)}
-            ];
-            if (lang === "ar") {
-                offers_ar = arr;
-            } else {
-                offers_en = arr;
-            }
-            displayOffers();
-            alert(lang === "ar" ? "تم تحديث العروض!" : "Offers updated!");
-        }
-
-        window.onload = function() {
-            setLang("ar");
-            displayOffers();
-        }
-    <!-- 🔸 Top Promo Bar -->
-<div class="promo-bar" role="status" aria-live="polite">
-  <span class="promo-text">🔥 Something Crispy is Coming Soon 🔥</span>
-  <button class="promo-close" aria-label="Close promo">×</button>
-</div>
 </body>
 </html>
