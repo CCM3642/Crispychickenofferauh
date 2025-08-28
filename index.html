@@ -14,7 +14,24 @@
         .lang-switch button.active { background: #d93900; color: #fff; }
         section { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 6px #eee; padding: 20px;}
         .offers { margin-bottom: 20px; }
-        .offer { background: #f7f7f7; padding: 12px; border-radius: 8px; margin-bottom: 10px; }
+        .offer {
+            background: #fff;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transform: perspective(600px) rotateX(0deg);
+            transition: all 0.4s ease-in-out;
+            border-left: 6px solid #d93900;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            position: relative;
+        }
+        .offer:hover {
+            transform: perspective(600px) rotateX(4deg) scale(1.02);
+            box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+        }
         .contact-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
         .contact-btns a {
             background: #25d366; color: #fff; padding: 10px 14px; border-radius: 6px; text-decoration: none;
@@ -24,6 +41,10 @@
         .contact-btns a.facebook { background: #3b5998; }
         .contact-btns a.instagram { background: #e4405f; }
         .contact-btns a.tiktok { background: #000; }
+        .contact-btns a.website {
+            background: #ffcb05;
+            color: #d93900;
+        }
         .hotline { background: #d93900; color: #fff; padding: 14px; border-radius: 8px; text-align: center; font-size: 1.15em; margin-bottom: 16px; letter-spacing: 2px;}
         form { display: flex; flex-direction: column; gap: 8px; }
         input, textarea {
@@ -36,9 +57,16 @@
         .admin-login { text-align: center; margin-bottom: 20px;}
         .admin-login input { padding: 6px; margin: 0 5px; border-radius: 5px; border: 1px solid #ccc;}
         .hide { display: none;}
+        #promo-banner {
+            background: #d93900; color: white; text-align: center; padding: 10px; font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <div id="promo-banner">
+        Something crispy coming...
+    </div>
+
     <header>
         <img src="https://github.com/CCM3642/Crispychickenofferauh/assets/1" alt="شعار الدجاج المقرمش">
         <h1 id="title-ar">عروض الدجاج المقرمش</h1>
@@ -72,11 +100,12 @@
             Hotline: 600527488
         </div>
         <div class="contact-btns">
-            <a class="whatsapp" href="https://wa.me/966501882206?text=أرغب في طلب أوردر/عرض" target="_blank" id="whatsapp-ar">واتساب</a>
-            <a class="whatsapp hide" href="https://wa.me/966501882206?text=I want to order/an offer" target="_blank" id="whatsapp-en">WhatsApp</a>
+            <a class="whatsapp" href="https://wa.me/971501882206?text=أرغب%20في%20طلب%20أوردر%20أو%20عرض" target="_blank" id="whatsapp-ar">واتساب</a>
+            <a class="whatsapp hide" href="https://wa.me/971501882206?text=I%20want%20to%20order%20or%20inquire%20about%20an%20offer" target="_blank" id="whatsapp-en">WhatsApp</a>
             <a class="facebook" href="https://www.facebook.com/share/1Av1jWFRLa/?mibextid=wwXIfr" target="_blank">فيسبوك</a>
             <a class="instagram" href="https://www.instagram.com/crispychickenae/?utm_source=ig_web_button_share_sheet" target="_blank">إنستجرام</a>
             <a class="tiktok" href="https://www.tiktok.com/@crispychicken.ae?_t=ZS-8zEwXQ8Aq4G&_r=1" target="_blank">تيك توك</a>
+            <a class="website" href="https://crispychicken-uae.com/" target="_blank">الموقع الرسمي</a>
         </div>
         <form action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
             <h3 id="form-title-ar">إرسال شكوى أو اقتراح</h3>
@@ -90,90 +119,4 @@
     <script>
         // نصوص العروض باللغتين
         let offers_ar = [
-            "عرض الأربعاء: دجاج مقرمش + بطاطس + مشروب بـ 25 ريال فقط!",
-            "عرض الجمعة: خصم 20% على جميع الطلبات فوق 50 ريال",
-            "عرض الأحد: وجبة عائلية بـ 70 ريال (تشمل 5 قطع دجاج + جوانح + سلطة)"
-        ];
-        let offers_en = [
-            "Wednesday Offer: Crispy chicken + fries + drink for only 25 SAR!",
-            "Friday Offer: 20% discount on orders above 50 SAR",
-            "Sunday Offer: Family meal for 70 SAR (includes 5 pieces of chicken + wings + salad)"
-        ];
-
-        let lang = "ar";
-        let isAdmin = false;
-        let adminPassword = "crispyadmin"; // يمكنك تغييره بالكود
-
-        function displayOffers() {
-            let list = document.getElementById('offers-list');
-            list.innerHTML = "";
-            let arr = (lang === "ar") ? offers_ar : offers_en;
-            arr.forEach(o => {
-                let div = document.createElement('div');
-                div.className = "offer";
-                div.textContent = o;
-                list.appendChild(div);
-            });
-        }
-
-        function setLang(l) {
-            lang = l;
-            // تغيير العناوين
-            document.getElementById('lang-ar').classList.toggle("active", l === "ar");
-            document.getElementById('lang-en').classList.toggle("active", l === "en");
-            document.getElementById('title-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('title-en').classList.toggle("hide", l !== "en");
-            document.getElementById('sub-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('sub-en').classList.toggle("hide", l !== "en");
-            document.getElementById('hotline-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('hotline-en').classList.toggle("hide", l !== "en");
-            document.getElementById('whatsapp-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('whatsapp-en').classList.toggle("hide", l !== "en");
-            document.getElementById('form-title-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('form-title-en').classList.toggle("hide", l !== "en");
-            document.getElementById('submit-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('submit-en').classList.toggle("hide", l !== "en");
-            document.getElementById('admin-title-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('admin-title-en').classList.toggle("hide", l !== "en");
-            document.getElementById('name-input').placeholder = (l === "ar" ? "الاسم" : "Name");
-            document.getElementById('message-input').placeholder = (l === "ar" ? "اكتب شكواك أو اقتراحك هنا..." : "Write your complaint or suggestion here...");
-            displayOffers();
-        }
-
-        // منطقة الأدمن
-        function loginAdmin() {
-            let pass = document.getElementById('admin-pass').value;
-            if (pass === adminPassword) {
-                isAdmin = true;
-                document.getElementById('admin-login').classList.add('hide');
-                document.getElementById('admin-area').classList.remove('hide');
-                // عرض العروض الحالية في مربع النص
-                document.getElementById('offers-admin').value = (lang === "ar" ? offers_ar.join('\n') : offers_en.join('\n'));
-            } else {
-                alert(lang === "ar" ? "كلمة المرور غير صحيحة" : "Wrong password");
-            }
-        }
-        function logoutAdmin() {
-            isAdmin = false;
-            document.getElementById('admin-login').classList.remove('hide');
-            document.getElementById('admin-area').classList.add('hide');
-        }
-        function updateOffers() {
-            let txt = document.getElementById('offers-admin').value.split('\n');
-            if (lang === "ar") {
-                offers_ar = txt;
-            } else {
-                offers_en = txt;
-            }
-            displayOffers();
-            alert(lang === "ar" ? "تم تحديث العروض!" : "Offers updated!");
-        }
-
-        // عند تحميل الصفحة
-        window.onload = function() {
-            setLang("ar");
-            displayOffers();
-        }
-    </script>
-</body>
-</html>
+            "
