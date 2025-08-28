@@ -2,13 +2,14 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>عروض الدجاج المقرمش</title>
+    <title>Crispy Chicken UAE Offers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body { font-family: 'Cairo', Arial, sans-serif; background: #fffbe7; margin: 0; padding: 0; }
         header { background: #ffcb05; padding: 20px; text-align: center; }
         header img { max-width: 120px; margin-bottom: 10px; display:block; margin-left:auto; margin-right:auto;}
         h1 { margin: 0; color: #d93900; }
+        h2 { color: #ffcb05; font-size: 1.2em; font-weight: bold; margin-top: 10px;}
         .lang-switch { text-align: center; margin-bottom: 15px; }
         .lang-switch button { padding: 8px 18px; border: 1px solid #d93900; background: #fff; color: #d93900; border-radius: 6px; font-weight: bold; margin: 0 5px; cursor: pointer;}
         .lang-switch button.active { background: #d93900; color: #fff; }
@@ -59,18 +60,23 @@
         .hide { display: none;}
         #promo-banner {
             background: #d93900; color: white; text-align: center; padding: 10px; font-weight: bold;
+            animation: slide 10s infinite linear;
+        }
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
 <body>
     <div id="promo-banner">
-        Something crispy coming...
+        أحدث العروض لدينا - تابعنا للحصول على أفضل الأسعار!
     </div>
 
     <header>
-        <img src="https://github.com/CCM3642/Crispychickenofferauh/assets/1" alt="شعار الدجاج المقرمش">
-        <h1 id="title-ar">عروض الدجاج المقرمش</h1>
-        <h1 id="title-en" class="hide">Crispy Chicken Offers</h1>
+        <img src="https://github.com/CCM3642/Crispychickenofferauh/assets/1" alt="شعار كريسبي تشيكن UAE">
+        <h1 id="title-ar">Crispy Chicken UAE</h1>
+        <h1 id="title-en" class="hide">Crispy Chicken UAE</h1>
         <p id="sub-ar">استمتع بأفضل العروض وتواصل معنا مباشرة!</p>
         <p id="sub-en" class="hide">Enjoy the best offers and contact us directly!</p>
     </header>
@@ -117,6 +123,59 @@
         </form>
     </section>
     <script>
-        // نصوص العروض باللغتين
-        let offers_ar = [
-            "
+        function setLang(lang) {
+            if (lang === 'ar') {
+                document.getElementById("title-ar").style.display = "block";
+                document.getElementById("title-en").style.display = "none";
+                document.getElementById("sub-ar").style.display = "block";
+                document.getElementById("sub-en").style.display = "none";
+                document.getElementById("lang-ar").classList.add('active');
+                document.getElementById("lang-en").classList.remove('active');
+                document.getElementById("hotline-ar").style.display = "block";
+                document.getElementById("hotline-en").style.display = "none";
+                document.getElementById("whatsapp-ar").style.display = "inline-block";
+                document.getElementById("whatsapp-en").style.display = "none";
+                document.getElementById("form-title-ar").style.display = "block";
+                document.getElementById("form-title-en").style.display = "none";
+                document.getElementById("submit-ar").style.display = "inline-block";
+                document.getElementById("submit-en").style.display = "none";
+            } else {
+                document.getElementById("title-ar").style.display = "none";
+                document.getElementById("title-en").style.display = "block";
+                document.getElementById("sub-ar").style.display = "none";
+                document.getElementById("sub-en").style.display = "block";
+                document.getElementById("lang-en").classList.add('active');
+                document.getElementById("lang-ar").classList.remove('active');
+                document.getElementById("hotline-ar").style.display = "none";
+                document.getElementById("hotline-en").style.display = "block";
+                document.getElementById("whatsapp-ar").style.display = "none";
+                document.getElementById("whatsapp-en").style.display = "inline-block";
+                document.getElementById("form-title-ar").style.display = "none";
+                document.getElementById("form-title-en").style.display = "block";
+                document.getElementById("submit-ar").style.display = "none";
+                document.getElementById("submit-en").style.display = "inline-block";
+            }
+        }
+        
+        function loginAdmin() {
+            const password = document.getElementById('admin-pass').value;
+            if (password === 'ccm123') {
+                document.getElementById('admin-area').style.display = 'block';
+                document.getElementById('admin-login').style.display = 'none';
+            } else {
+                alert('كلمة مرور غير صحيحة');
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('admin-area').style.display = 'none';
+            document.getElementById('admin-login').style.display = 'block';
+        }
+        
+        function updateOffers() {
+            // وضع التحديثات هنا
+            alert('تم تحديث العروض بنجاح');
+        }
+    </script>
+</body>
+</html>
