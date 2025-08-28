@@ -12,30 +12,9 @@
         .lang-switch { text-align: center; margin-bottom: 15px; }
         .lang-switch button { padding: 8px 18px; border: 1px solid #d93900; background: #fff; color: #d93900; border-radius: 6px; font-weight: bold; margin: 0 5px; cursor: pointer;}
         .lang-switch button.active { background: #d93900; color: #fff; }
-        section { max-width: 650px; margin: 30px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px #eee; padding: 24px;}
-        .offers { margin-bottom: 24px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;}
-        .offer-card {
-            background: linear-gradient(135deg, #ffe7b3 70%, #ffcb05 100%);
-            border: 2px solid #d93900;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px #f6d36b;
-            padding: 24px 20px 18px 20px;
-            min-width: 220px;
-            max-width: 310px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            transition: box-shadow 0.3s;
-        }
-        .offer-card:hover { box-shadow: 0 8px 24px #ffcb05; }
-        .offer-title { font-size: 1.1em; font-weight: bold; color: #d93900; margin-bottom: 8px; text-align:center;}
-        .offer-desc { color: #333; margin-bottom: 14px; text-align:center;}
-        .timer { font-size: 1em; color: #fff; background: #d93900; border-radius: 8px; padding: 5px 12px; margin-bottom: 10px;}
-        .hotline { background: #d93900; color: #fff; padding: 14px; border-radius: 8px; text-align: center; font-size: 1.12em; margin-bottom: 16px; letter-spacing: 2px;}
-        .office-address {margin: 32px auto 20px auto; text-align: center;}
-        .office-address h2 {color:#d93900; margin-bottom:8px;}
-        .office-address .address-box {font-size:1.12em; color:#333; background:#fffbe7; border:2px solid #d93900; border-radius:10px; display:inline-block; padding:14px 22px;}
+        section { max-width: 600px; margin: 30px auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 6px #eee; padding: 20px;}
+        .offers { margin-bottom: 20px; }
+        .offer { background: #f7f7f7; padding: 12px; border-radius: 8px; margin-bottom: 10px; }
         .contact-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
         .contact-btns a {
             background: #25d366; color: #fff; padding: 10px 14px; border-radius: 6px; text-decoration: none;
@@ -45,27 +24,18 @@
         .contact-btns a.facebook { background: #3b5998; }
         .contact-btns a.instagram { background: #e4405f; }
         .contact-btns a.tiktok { background: #000; }
-        form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;}
+        .hotline { background: #d93900; color: #fff; padding: 14px; border-radius: 8px; text-align: center; font-size: 1.15em; margin-bottom: 16px; letter-spacing: 2px;}
+        form { display: flex; flex-direction: column; gap: 8px; }
         input, textarea {
             padding: 10px; border: 1px solid #ccc; border-radius: 6px;
             font-size: 1em;
         }
         button { background: #d93900; color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 1em; cursor: pointer; }
         button:hover { background: #ffcb05; color: #d93900; }
-        .admin-area { background: #fffbe7; border: 2px dashed #d93900; padding: 15px; margin-top: 35px; margin-bottom: 16px; border-radius: 10px;}
+        .admin-area { background: #fffbe7; border: 2px dashed #d93900; padding: 15px; margin-bottom: 20px; border-radius: 10px;}
         .admin-login { text-align: center; margin-bottom: 20px;}
         .admin-login input { padding: 6px; margin: 0 5px; border-radius: 5px; border: 1px solid #ccc;}
-        .admin-fields {display:flex; gap:18px; flex-wrap:wrap; justify-content:center;}
-        .admin-field {background:#fff; border:1.5px solid #d93900; border-radius:10px; padding:12px; margin-bottom: 10px; min-width:220px; max-width:320px;}
-        .admin-field label {font-weight:bold; color:#d93900;}
         .hide { display: none;}
-        @media(max-width: 800px) {
-            section {max-width: 98vw;}
-            .offers {gap: 12px;}
-            .offer-card {min-width:180px; max-width:99vw;}
-            .admin-fields {gap:8px;}
-            .admin-field {min-width:140px;}
-        }
     </style>
 </head>
 <body>
@@ -81,20 +51,25 @@
         <button id="lang-en" onclick="setLang('en')">EN</button>
     </div>
     <section>
+        <!-- منطقة الأدمن -->
+        <div id="admin-login" class="admin-login">
+            <input type="password" id="admin-pass" placeholder="كلمة مرور الأدمن / Admin password">
+            <button onclick="loginAdmin()">دخول الأدمن / Admin Login</button>
+        </div>
+        <div id="admin-area" class="admin-area hide">
+            <h3 id="admin-title-ar">تعديل العروض</h3>
+            <h3 id="admin-title-en" class="hide">Edit Offers</h3>
+            <textarea id="offers-admin" rows="6" style="width:100%;"></textarea><br>
+            <button onclick="updateOffers()">تحديث العروض / Update Offers</button>
+            <button onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
+        </div>
+        <!-- العروض -->
         <div class="offers" id="offers-list"></div>
         <div class="hotline" id="hotline-ar">
             الخط الساخن: 600527488
         </div>
         <div class="hotline hide" id="hotline-en">
             Hotline: 600527488
-        </div>
-        <div class="office-address">
-            <h2>المكتب الرئيسي كرسبي تشيكن - الإمارات</h2>
-            <div class="address-box">
-                الإمارات العربية المتحدة - عجمان<br>
-                شارع الشيخ خليفة بن زايد<br>
-                بجوار جمعية عجمان التعاونية
-            </div>
         </div>
         <div class="contact-btns">
             <a class="whatsapp" href="https://wa.me/966501882206?text=أرغب في طلب أوردر/عرض" target="_blank" id="whatsapp-ar">واتساب</a>
@@ -111,104 +86,39 @@
             <button type="submit" id="submit-ar">إرسال</button>
             <button type="submit" id="submit-en" class="hide">Send</button>
         </form>
-        <!-- منطقة الأدمن - أسفل الصفحة -->
-        <div id="admin-login" class="admin-login">
-            <input type="password" id="admin-pass" placeholder="كلمة مرور الأدمن / Admin password">
-            <button onclick="loginAdmin()">دخول الأدمن / Admin Login</button>
-        </div>
-        <div id="admin-area" class="admin-area hide">
-            <h3 id="admin-title-ar">تعديل العروض</h3>
-            <h3 id="admin-title-en" class="hide">Edit Offers</h3>
-            <form id="admin-form" onsubmit="saveOffers(); return false;">
-                <div class="admin-fields">
-                    <div class="admin-field">
-                        <label id="offer1-label-ar">نص العرض الأول</label>
-                        <label id="offer1-label-en" class="hide">Offer 1 Text</label>
-                        <textarea id="offer1-text" rows="2"></textarea>
-                        <label id="offer1-time-label-ar">وقت انتهاء العرض (ساعات)</label>
-                        <label id="offer1-time-label-en" class="hide">Offer End (hours)</label>
-                        <input type="number" id="offer1-hours" min="0" value="5">
-                    </div>
-                    <div class="admin-field">
-                        <label id="offer2-label-ar">نص العرض الثاني</label>
-                        <label id="offer2-label-en" class="hide">Offer 2 Text</label>
-                        <textarea id="offer2-text" rows="2"></textarea>
-                        <label id="offer2-time-label-ar">وقت انتهاء العرض (ساعات)</label>
-                        <label id="offer2-time-label-en" class="hide">Offer End (hours)</label>
-                        <input type="number" id="offer2-hours" min="0" value="12">
-                    </div>
-                </div>
-                <div style="text-align:center;">
-                    <button type="submit" style="margin-top:10px;">حفظ / Save</button>
-                    <button type="button" onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
-                </div>
-            </form>
-        </div>
     </section>
     <script>
-        // العروض: النص + عدد الساعات للعرض
+        // نصوص العروض باللغتين
         let offers_ar = [
-            {desc: "دجاج مقرمش + بطاطس + مشروب بـ 25 درهم فقط!", hours: 5},
-            {desc: "خصم 20% على جميع الطلبات فوق 50 درهم", hours: 12}
+            "عرض الأربعاء: دجاج مقرمش + بطاطس + مشروب بـ 25 ريال فقط!",
+            "عرض الجمعة: خصم 20% على جميع الطلبات فوق 50 ريال",
+            "عرض الأحد: وجبة عائلية بـ 70 ريال (تشمل 5 قطع دجاج + جوانح + سلطة)"
         ];
         let offers_en = [
-            {desc: "Crispy chicken + fries + drink for only 25 AED!", hours: 5},
-            {desc: "20% discount on orders above 50 AED", hours: 12}
+            "Wednesday Offer: Crispy chicken + fries + drink for only 25 SAR!",
+            "Friday Offer: 20% discount on orders above 50 SAR",
+            "Sunday Offer: Family meal for 70 SAR (includes 5 pieces of chicken + wings + salad)"
         ];
 
-        let timers = [];
         let lang = "ar";
         let isAdmin = false;
-        let adminPassword = "crispyadmin"; // يمكنك تغييره
-
-        // عداد تنازلي للعرض (timer)
-        function startTimers() {
-            timers.forEach(clearInterval);
-            timers = [];
-            let arr = (lang === "ar") ? offers_ar : offers_en;
-            arr.forEach((offer, idx) => {
-                let startHours = offer.hours;
-                let offerStart = Date.now();
-                let timerId = setInterval(function(){
-                    let timerElem = document.getElementById('timer-'+idx);
-                    let now = Date.now();
-                    let leftMs = offerStart + startHours*3600000 - now;
-                    if (leftMs > 0) {
-                        let h = Math.floor(leftMs / (1000*60*60));
-                        let m = Math.floor((leftMs % (1000*60*60)) / (1000*60));
-                        let s = Math.floor((leftMs % (1000*60)) / 1000);
-                        timerElem.textContent = lang === "ar" 
-                            ? `ينتهي خلال: ${h}h ${m}m ${s}s`
-                            : `Ends in: ${h}h ${m}m ${s}s`;
-                        timerElem.style.background = "#d93900";
-                    } else {
-                        timerElem.textContent = lang === "ar" ? "انتهى العرض" : "Offer expired";
-                        timerElem.style.background = "#999";
-                    }
-                }, 1000);
-                timers.push(timerId);
-            });
-        }
+        let adminPassword = "crispyadmin"; // يمكنك تغييره بالكود
 
         function displayOffers() {
             let list = document.getElementById('offers-list');
             list.innerHTML = "";
             let arr = (lang === "ar") ? offers_ar : offers_en;
-            arr.forEach((o, idx) => {
-                let card = document.createElement('div');
-                card.className = "offer-card";
-                card.innerHTML = `
-                    <div class="offer-title">${lang === "ar" ? "عرض رقم " + (idx+1) : "Offer #" + (idx+1)}</div>
-                    <div class="offer-desc">${o.desc}</div>
-                    <div class="timer" id="timer-${idx}"></div>
-                `;
-                list.appendChild(card);
+            arr.forEach(o => {
+                let div = document.createElement('div');
+                div.className = "offer";
+                div.textContent = o;
+                list.appendChild(div);
             });
-            startTimers();
         }
 
         function setLang(l) {
             lang = l;
+            // تغيير العناوين
             document.getElementById('lang-ar').classList.toggle("active", l === "ar");
             document.getElementById('lang-en').classList.toggle("active", l === "en");
             document.getElementById('title-ar').classList.toggle("hide", l !== "ar");
@@ -223,17 +133,8 @@
             document.getElementById('form-title-en').classList.toggle("hide", l !== "en");
             document.getElementById('submit-ar').classList.toggle("hide", l !== "ar");
             document.getElementById('submit-en').classList.toggle("hide", l !== "en");
-            // admin labels
             document.getElementById('admin-title-ar').classList.toggle("hide", l !== "ar");
             document.getElementById('admin-title-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer1-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer1-label-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer2-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer2-label-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer1-time-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer1-time-label-en').classList.toggle("hide", l !== "en");
-            document.getElementById('offer2-time-label-ar').classList.toggle("hide", l !== "ar");
-            document.getElementById('offer2-time-label-en').classList.toggle("hide", l !== "en");
             document.getElementById('name-input').placeholder = (l === "ar" ? "الاسم" : "Name");
             document.getElementById('message-input').placeholder = (l === "ar" ? "اكتب شكواك أو اقتراحك هنا..." : "Write your complaint or suggestion here...");
             displayOffers();
@@ -246,11 +147,8 @@
                 isAdmin = true;
                 document.getElementById('admin-login').classList.add('hide');
                 document.getElementById('admin-area').classList.remove('hide');
-                let arr = (lang === "ar") ? offers_ar : offers_en;
-                document.getElementById('offer1-text').value = arr[0].desc;
-                document.getElementById('offer1-hours').value = arr[0].hours;
-                document.getElementById('offer2-text').value = arr[1].desc;
-                document.getElementById('offer2-hours').value = arr[1].hours;
+                // عرض العروض الحالية في مربع النص
+                document.getElementById('offers-admin').value = (lang === "ar" ? offers_ar.join('\n') : offers_en.join('\n'));
             } else {
                 alert(lang === "ar" ? "كلمة المرور غير صحيحة" : "Wrong password");
             }
@@ -260,20 +158,18 @@
             document.getElementById('admin-login').classList.remove('hide');
             document.getElementById('admin-area').classList.add('hide');
         }
-        function saveOffers() {
-            let arr = [
-                {desc: document.getElementById('offer1-text').value, hours: Number(document.getElementById('offer1-hours').value)},
-                {desc: document.getElementById('offer2-text').value, hours: Number(document.getElementById('offer2-hours').value)}
-            ];
+        function updateOffers() {
+            let txt = document.getElementById('offers-admin').value.split('\n');
             if (lang === "ar") {
-                offers_ar = arr;
+                offers_ar = txt;
             } else {
-                offers_en = arr;
+                offers_en = txt;
             }
             displayOffers();
             alert(lang === "ar" ? "تم تحديث العروض!" : "Offers updated!");
         }
 
+        // عند تحميل الصفحة
         window.onload = function() {
             setLang("ar");
             displayOffers();
