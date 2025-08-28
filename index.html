@@ -1,110 +1,164 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>عروض الدجاج المقرمش</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض وجبة مقرمشة قريباً</title>
+    <style>
+        /* ===== Box-sizing عالمي ===== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
 
-  <style>
-    body { font-family: 'Cairo', Arial, sans-serif; background: #fffbe7; margin: 0; padding: 0; }
-    header { background: #ffcb05; padding: 20px; text-align: center; }
-    header img { max-width: 120px; margin-bottom: 10px; display:block; margin-left:auto; margin-right:auto;}
-    h1 { margin: 0; color: #d93900; }
-    .promo-bar {
-      background: #d93900; color: #fff; padding: 12px 20px;
-      display: flex; justify-content: space-between; align-items: center;
-      font-weight: bold;
-    }
-    .promo-close {
-      background: transparent; border: none; font-size: 1.4em; color: #fff; cursor: pointer;
-    }
-    .lang-switch { text-align: center; margin-bottom: 15px; }
-    .lang-switch button { padding: 8px 18px; border: 1px solid #d93900; background: #fff; color: #d93900; border-radius: 6px; font-weight: bold; margin: 0 5px; cursor: pointer;}
-    .lang-switch button.active { background: #d93900; color: #fff; }
-    section { max-width: 650px; margin: 30px auto; background: #fff; border-radius: 16px; box-shadow: 0 4px 16px #eee; padding: 24px;}
-    .offers { margin-bottom: 24px; display: flex; gap: 22px; justify-content: center; flex-wrap: wrap;}
-    .offer-card {
-      background: linear-gradient(135deg, #ffe7b3 70%, #ffcb05 100%);
-      border: 2px solid #d93900;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px #f6d36b;
-      padding: 24px 20px 18px 20px;
-      min-width: 220px;
-      max-width: 310px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      transition: box-shadow 0.3s;
-    }
-    .offer-card:hover { box-shadow: 0 8px 24px #ffcb05; }
-    .offer-title { font-size: 1.1em; font-weight: bold; color: #d93900; margin-bottom: 8px; text-align:center;}
-    .offer-desc { color: #333; margin-bottom: 14px; text-align:center;}
-    .timer { font-size: 1em; color: #fff; background: #d93900; border-radius: 8px; padding: 5px 12px; margin-bottom: 10px;}
-    .hotline { background: #d93900; color: #fff; padding: 14px; border-radius: 8px; text-align: center; font-size: 1.12em; margin-bottom: 16px; letter-spacing: 2px;}
-    .office-address {margin: 32px auto 20px auto; text-align: center;}
-    .office-address h2 {color:#d93900; margin-bottom:8px;}
-    .office-address .address-box {font-size:1.12em; color:#333; background:#fffbe7; border:2px solid #d93900; border-radius:10px; display:inline-block; padding:14px 22px;}
-    .contact-btns { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
-    .contact-btns a {
-      padding: 10px 14px; border-radius: 6px; text-decoration: none;
-      font-weight: bold; transition: background 0.3s;
-    }
-    .contact-btns a.whatsapp { background: #25d366; color: #fff; }
-    .contact-btns a.facebook { background: #3b5998; color: #fff; }
-    .contact-btns a.instagram { background: #e4405f; color: #fff; }
-    .contact-btns a.tiktok { background: #000; color: #fff; }
-    form { display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;}
-    input, textarea {
-      padding: 10px; border: 1px solid #ccc; border-radius: 6px;
-      font-size: 1em;
-    }
-    button { background: #d93900; color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 1em; cursor: pointer; }
-    button:hover { background: #ffcb05; color: #d93900; }
-    .admin-area { background: #fffbe7; border: 2px dashed #d93900; padding: 15px; margin-top: 35px; margin-bottom: 16px; border-radius: 10px;}
-    .admin-login { text-align: center; margin-bottom: 20px;}
-    .admin-login input { padding: 6px; margin: 0 5px; border-radius: 5px; border: 1px solid #ccc;}
-    .admin-fields {display:flex; gap:18px; flex-wrap:wrap; justify-content:center;}
-    .admin-field {background:#fff; border:1.5px solid #d93900; border-radius:10px; padding:12px; margin-bottom: 10px; min-width:220px; max-width:320px;}
-    .admin-field label {font-weight:bold; color:#d93900;}
-    .hide { display: none;}
-    @media(max-width: 800px) {
-      section {max-width: 98vw;}
-      .offers {gap: 12px;}
-      .offer-card {min-width:180px; max-width:99vw;}
-      .admin-fields {gap:8px;}
-      .admin-field {min-width:140px;}
-    }
-  </style>
+        /* ===== نصوص وخلفية ===== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fafafa;
+            color: #333;
+        }
+
+        /* ===== رأس الصفحة ===== */
+        header {
+            background: #d62828;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* ===== أقسام ===== */
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ===== عروض الوجبات ===== */
+        .offer {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+        /* ===== استمارة الشكوى ===== */
+        form input,
+        form textarea,
+        form button {
+            display: block;
+            width: 100%;
+            margin: 8px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* ===== تأثير التركيز ===== */
+        form input:focus,
+        form textarea:focus {
+            border-color: #d62828;
+            outline: none;
+            box-shadow: 0 0 5px rgba(214, 40, 40, 0.5);
+        }
+
+        /* ===== زر الإرسال ===== */
+        form button {
+            background: #d62828;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #a4161a;
+        }
+
+        /* ===== شريط الترويج ===== */
+        .promo-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #111;
+            color: white;
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        .promo-close {
+            background: #fff;
+            color: #111;
+            border: none;
+            cursor: pointer;
+        }
+
+        .promo-close:hover {
+            filter: brightness(0.9);
+        }
+
+        /* ----- متجاوب للموبايل ----- */
+        @media (max-width: 600px) {
+            .promo-text {
+                font-size: 16px;
+            }
+            .promo-bar {
+                padding: 8px 10px;
+            }
+            header {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- 🔶 Promo Bar -->
-  <div class="promo-bar" role="status" aria-live="polite">
-    <span class="promo-text">🔥 Something Crispy is Coming Soon 🔥</span>
-    <button class="promo-close" aria-label="Close promo">×</button>
-  </div>
 
-  <!-- باقي الصفحة (ضع هنا الكود الموجود في <body> من النسخة السابقة بدون تغيير) -->
+    <!-- شريط الترويج -->
+    <div class="promo-bar">
+        <span class="promo-text">Something Crispy is Coming Soon 🔥</span>
+        <button class="promo-close" aria-label="إغلاق شريط الترويج">×</button>
+    </div>
 
-  <!-- 🔽 سكريبت JS -->
-  <script>
-    // 🔒 Promo Close Memory
-    (function(){
-      const key = 'promo_closed_v1';
-      document.addEventListener('DOMContentLoaded', function(){
-        const bar = document.querySelector('.promo-bar');
-        if(localStorage.getItem(key)==='1' && bar){ bar.style.display='none'; }
-        document.addEventListener('click', function(e){
-          if(e.target && e.target.classList.contains('promo-close')){
-            if (bar) bar.style.display='none';
-            localStorage.setItem(key,'1');
-          }
+    <!-- الرأس -->
+    <header>
+        <h1>الوجبة القادمة... مقرمشة 🔥</h1>
+    </header>
+
+    <!-- قسم الشكوى -->
+    <section id="complaintFormSection">
+        <h2>أرسل شكوى</h2>
+        <form id="complaintForm">
+            <input type="text" name="name" placeholder="الاسم" required>
+            <textarea name="complaint" placeholder="اكتب شكواك هنا..." required></textarea>
+            <button type="submit">إرسال</button>
+        </form>
+        <div id="formResponse"></div>
+    </section>
+
+    <script>
+        // التعامل مع إرسال النموذج
+        document.getElementById("complaintForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+
+            // إرسال البيانات باستخدام Ajax (يمكنك استبدال الرابط 'submit_complaint.php' برابطك الفعلي)
+            fetch('submit_complaint.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("formResponse").textContent = "✅ تم استلام الشكوى، سنتواصل معك قريباً.";
+                this.reset();
+            })
+            .catch(error => {
+                document.getElementById("formResponse").textContent = "❌ حدث خطأ، حاول مرة أخرى.";
+            });
         });
-      });
-    })();
-  </script>
 
-  <!-- 🔁 كود JS كامل للعروض، اللغات، الأدمن، إلخ (كما في الكود السابق لديك) -->
-
+        // إغلاق شريط الترويج عند الضغط على زر الإغلاق
+        document.querySelector(".promo-close").addEventListener("click", function() {
+            document.querySelector(".promo-bar").style.display = "none";
+        });
+    </script>
 </body>
 </html>
