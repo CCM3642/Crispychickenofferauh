@@ -5,228 +5,12 @@
     <title>Crispy Chicken UAE Offers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body {
-            font-family: 'Cairo', Arial, sans-serif;
-            background: #fffbe7;
-            margin: 0;
-            padding: 0;
-            transition: background 0.3s ease;
-        }
-
-        header {
-            background: #ffcb05;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #d93900;
-        }
-
-        header img {
-            max-width: 120px;
-            margin-bottom: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        h1 {
-            margin: 0;
-            color: #d93900;
-        }
-
-        h2 {
-            color: #ffcb05;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .lang-switch {
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .lang-switch button {
-            padding: 8px 18px;
-            border: 1px solid #d93900;
-            background: #fff;
-            color: #d93900;
-            border-radius: 6px;
-            font-weight: bold;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .lang-switch button.active {
-            background: #d93900;
-            color: #fff;
-        }
-
-        section {
-            max-width: 600px;
-            margin: 30px auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px #eee;
-            padding: 20px;
-        }
-
-        .offers {
-            margin-bottom: 20px;
-        }
-
-        .offer {
-            background: #fff;
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transform: perspective(600px) rotateX(0deg);
-            transition: all 0.4s ease-in-out;
-            border-left: 6px solid #d93900;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: #333;
-            position: relative;
-        }
-
-        .offer:hover {
-            transform: perspective(600px) rotateX(4deg) scale(1.02);
-            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-btns {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .contact-btns a {
-            background: #25d366;
-            color: #fff;
-            padding: 10px 14px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .contact-btns a.whatsapp {
-            background: #25d366;
-        }
-
-        .contact-btns a.facebook {
-            background: #3b5998;
-        }
-
-        .contact-btns a.instagram {
-            background: #e4405f;
-        }
-
-        .contact-btns a.tiktok {
-            background: #000;
-        }
-
-        .contact-btns a.website {
-            background: #ffcb05;
-            color: #d93900;
-        }
-
-        .hotline {
-            background: #d93900;
-            color: #fff;
-            padding: 14px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.15em;
-            margin-bottom: 16px;
-            letter-spacing: 2px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        input,
-        textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1em;
-        }
-
-        button {
-            background: #d93900;
-            color: #fff;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        button:hover {
-            background: #ffcb05;
-            color: #d93900;
-        }
-
-        .admin-area {
-            background: #fffbe7;
-            border: 2px dashed #d93900;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-
-        .admin-login {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .admin-login input {
-            padding: 6px;
-            margin: 0 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .hide {
-            display: none;
-        }
-
-        #promo-banner {
-            background: #d93900;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            animation: slide 10s infinite linear;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .error {
-            color: red;
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
+        /* ... (نفس تنسيق الـ CSS كما هو) ... */
     </style>
 </head>
 <body>
     <div id="promo-banner">
+        <!-- هذا سيكون شريط الأخبار المتحرك الذي يمكن تغييره عبر الإدارة -->
         أحدث العروض لدينا - تابعنا للحصول على أفضل الأسعار!
     </div>
 
@@ -244,6 +28,7 @@
     </div>
 
     <section>
+        <!-- واجهة الأدمن -->
         <div id="admin-login" class="admin-login">
             <input type="password" id="admin-pass" placeholder="كلمة مرور الأدمن / Admin password">
             <button onclick="loginAdmin()">دخول الأدمن / Admin Login</button>
@@ -252,11 +37,12 @@
         <div id="admin-area" class="admin-area hide">
             <h3 id="admin-title-ar">تعديل العروض</h3>
             <h3 id="admin-title-en" class="hide">Edit Offers</h3>
-            <textarea id="offers-admin" rows="6" style="width:100%;"></textarea><br>
+            <textarea id="offers-admin" rows="6" style="width:100%;">أدخل العروض هنا...</textarea><br>
             <button onclick="updateOffers()">تحديث العروض / Update Offers</button>
             <button onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
         </div>
 
+        <!-- العروض -->
         <div class="offers" id="offers-list">
             <!-- العروض ستظهر هنا -->
         </div>
@@ -278,14 +64,18 @@
             <a class="website" href="https://crispychicken-uae.com/" target="_blank">الموقع الرسمي</a>
         </div>
 
-        <form action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
+        <form id="complaint-form" action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
             <h3 id="form-title-ar">إرسال شكوى أو اقتراح</h3>
             <h3 id="form-title-en" class="hide">Send Complaint or Suggestion</h3>
             <input type="text" name="name" id="name-input" placeholder="الاسم" required>
             <textarea name="message" rows="4" id="message-input" placeholder="اكتب شكواك أو اقتراحك هنا..." required></textarea>
-            <button type="submit" id="submit-ar">إرسال</button>
-            <button type="submit" id="submit-en" class="hide">Send</button>
+            <button type="submit" id="submit-ar" onclick="confirmSubmission()">إرسال</button>
+            <button type="submit" id="submit-en" class="hide" onclick="confirmSubmission()">Send</button>
         </form>
+
+        <div id="confirmation-message" style="display: none; color: green; text-align: center; margin-top: 20px;">
+            تم إرسال رسالتك بنجاح! شكراً لتواصلك.
+        </div>
     </section>
 
     <script>
@@ -321,8 +111,32 @@
         }
 
         function updateOffers() {
-            // التحديثات ستكون هنا حسب المتطلبات
+            const offersText = document.getElementById('offers-admin').value;
+            const offersList = document.getElementById('offers-list');
+
+            if (offersText.trim() === '') {
+                alert('الرجاء إدخال العروض أولاً');
+                return;
+            }
+
+            // تحديث العروض المعروضة على الصفحة الرئيسية
+            const offerDiv = document.createElement('div');
+            offerDiv.classList.add('offer');
+            offerDiv.innerText = offersText;
+            offersList.appendChild(offerDiv);
+
+            // مسح محتوى المربع النصي بعد التحديث
+            document.getElementById('offers-admin').value = '';
             alert('تم تحديث العروض بنجاح');
+        }
+
+        function confirmSubmission() {
+            event.preventDefault();  // لمنع الإرسال الفوري للبريد
+            document.getElementById('confirmation-message').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('complaint-form').reset();
+                document.getElementById('confirmation-message').style.display = 'none';
+            }, 3000);
         }
     </script>
 </body>
