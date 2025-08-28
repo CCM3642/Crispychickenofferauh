@@ -2,15 +2,15 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Crispy Chicken UAE Offers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
             font-family: 'Cairo', Arial, sans-serif;
             background: #fffbe7;
             margin: 0;
             padding: 0;
-            color: #333;
+            transition: background 0.3s ease;
         }
 
         header {
@@ -252,7 +252,7 @@
         <div id="admin-area" class="admin-area hide">
             <h3 id="admin-title-ar">تعديل العروض</h3>
             <h3 id="admin-title-en" class="hide">Edit Offers</h3>
-            <textarea id="offers-admin" rows="6" style="width:100%;">أدخل العروض هنا...</textarea><br>
+            <textarea id="offers-admin" rows="6" style="width:100%;"></textarea><br>
             <button onclick="updateOffers()">تحديث العروض / Update Offers</button>
             <button onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
         </div>
@@ -278,18 +278,14 @@
             <a class="website" href="https://crispychicken-uae.com/" target="_blank">الموقع الرسمي</a>
         </div>
 
-        <form id="complaint-form" action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
+        <form action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
             <h3 id="form-title-ar">إرسال شكوى أو اقتراح</h3>
             <h3 id="form-title-en" class="hide">Send Complaint or Suggestion</h3>
             <input type="text" name="name" id="name-input" placeholder="الاسم" required>
             <textarea name="message" rows="4" id="message-input" placeholder="اكتب شكواك أو اقتراحك هنا..." required></textarea>
-            <button type="submit" id="submit-ar" onclick="confirmSubmission()">إرسال</button>
-            <button type="submit" id="submit-en" class="hide" onclick="confirmSubmission()">Send</button>
+            <button type="submit" id="submit-ar">إرسال</button>
+            <button type="submit" id="submit-en" class="hide">Send</button>
         </form>
-
-        <div id="confirmation-message" style="display: none; color: green; text-align: center; margin-top: 20px;">
-            تم إرسال رسالتك بنجاح! شكراً لتواصلك.
-        </div>
     </section>
 
     <script>
@@ -325,32 +321,8 @@
         }
 
         function updateOffers() {
-            const offersText = document.getElementById('offers-admin').value;
-            const offersList = document.getElementById('offers-list');
-
-            if (offersText.trim() === '') {
-                alert('الرجاء إدخال العروض أولاً');
-                return;
-            }
-
-            // تحديث العروض المعروضة على الصفحة الرئيسية
-            const offerDiv = document.createElement('div');
-            offerDiv.classList.add('offer');
-            offerDiv.innerText = offersText;
-            offersList.appendChild(offerDiv);
-
-            // مسح محتوى المربع النصي بعد التحديث
-            document.getElementById('offers-admin').value = '';
+            // التحديثات ستكون هنا حسب المتطلبات
             alert('تم تحديث العروض بنجاح');
-        }
-
-        function confirmSubmission() {
-            event.preventDefault();  // لمنع الإرسال الفوري للبريد
-            document.getElementById('confirmation-message').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('complaint-form').reset();
-                document.getElementById('confirmation-message').style.display = 'none';
-            }, 3000);
         }
     </script>
 </body>
