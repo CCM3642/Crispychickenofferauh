@@ -3,244 +3,607 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍗 Crispy Chicken UAE - مطعم الدجاج المقلي</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="icon" href="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png">
+    <title>كريسبى تشيكن الإمارات - أفضل الدجاج المقلي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo i {
+            font-size: 32px;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .special-offer {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+        
+        .special-offer:hover {
+            transform: scale(1.02);
+        }
+        
+        .offer-header {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .offer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .offer-item {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .offer-item i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .offer-price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .offer-days {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #ff6b35;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #ff6b35;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Delivery Section */
+        .delivery {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .delivery-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .delivery-map {
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .delivery-info {
+            padding: 20px;
+        }
+        
+        .delivery-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+        
+        .delivery-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .area-tag {
+            background: #ff6b35;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 5rem;
+            color: #ff6b35;
+            opacity: 0.2;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ff6b35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: #e55a2b;
+        }
+        
+        .contact-details {
+            padding: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #ff6b35;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #ff6b35;
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .special-offer {
+                padding: 25px;
+            }
+            
+            .offer-header {
+                font-size: 2rem;
+            }
+            
+            .offer-price {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- شريط التنقل -->
-    <nav class="navbar">
+    <!-- Header -->
+    <header>
         <div class="container">
-            <div class="nav-logo">
-                <img src="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png" alt="Crispy Chicken UAE" class="logo">
-                <h1>🍗 Crispy Chicken UAE</h1>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#offers">العروض</a></li>
-                <li><a href="#ultimate-offer">عرض خاص</a></li>
-                <li><a href="#delivery">التوصيل</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
-                <li><a href="#feedback">آراء العملاء</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- القسم الرئيسي -->
-    <header id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>أفضل دجاج مقلي في الإمارات</h2>
-                <p>جودة عالية، أسعار منافسة، توصيل سريع</p>
-                <div class="hero-buttons">
-                    <a href="#offers" class="btn btn-primary">عرض العروض</a>
-                    <a href="#ultimate-offer" class="btn btn-secondary">عرض خاص</a>
-                    <a href="#contact" class="btn btn-primary">اطلب الآن</a>
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-drumstick-bite"></i>
+                    كريسبى تشيكن الإمارات
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png" alt="Crispy Chicken">
+                <div class="contact-info">
+                    <a href="tel:600527488">
+                        <i class="fas fa-phone"></i>
+                        600 527488
+                    </a>
+                    <a href="tel:0501882206">
+                        <i class="fas fa-mobile-alt"></i>
+                        050 188 2206
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- عرض Ultimate Offer -->
-    <section id="ultimate-offer" class="ultimate-offer">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <div class="offer-banner">
+            <h1>أفضل دجاج مقلي في الإمارات</h1>
+            
+            <div class="special-offer">
+                <div class="offer-header">
+                    <i class="fas fa-fire"></i>
+                    عرض لا يفوّت
+                </div>
+                
                 <div class="offer-content">
-                    <div class="offer-badge">عرض خاص</div>
-                    <h2>🔥 Ultimate Offer 🔥</h2>
-                    <div class="offer-price">
-                        <span class="price">30 درهم</span>
-                        <span class="original-price">قيمة العرض</span>
+                    <div class="offer-item">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <h3>12 قطعة دجاج</h3>
                     </div>
-                    <div class="offer-details">
-                        <div class="detail-item">
-                            <i class="fas fa-drumstick-bite"></i>
-                            <span>12 قطعة دجاج</span>
-                        </div>
-                        <div class="detail-item">
-                            <i class="fas fa-pepper-hot"></i>
-                            <span>3 صلصة ثوم</span>
-                        </div>
+                    <div class="offer-item">
+                        <i class="fas fa-pepper-hot"></i>
+                        <h3>3 صلصة ثوم</h3>
                     </div>
-                    <div class="offer-days">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>الاثنين والثلاثاء</span>
+                    <div class="offer-item">
+                        <i class="fas fa-tag"></i>
+                        <h3>فقط 30 درهم</h3>
                     </div>
-                    <div class="offer-date">
-                        <i class="fas fa-clock"></i>
-                        <span>01 و 02 سبتمبر</span>
-                    </div>
-                    <a href="#contact" class="btn btn-primary order-now">اطلب الآن</a>
                 </div>
-                <div class="offer-image">
-                    <img src="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png" alt="Ultimate Offer">
+                
+                <div class="offer-days">
+                    <i class="fas fa-calendar-alt"></i>
+                    صالح يوميًا: الإثنين والثلاثاء (01-02 سبتمبر)
                 </div>
+                
+                <a href="https://wa.me/971501882206?text=طلب العرض المثالي: 12 قطعة دجاج + 3 صلصة ثوم - 30 درهم" 
+                   class="cta-button" target="_blank">
+                    اطلب الآن
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- العروض اليومية -->
-    <section id="offers" class="offers">
+    <!-- Features Section -->
+    <section class="features">
         <div class="container">
-            <div class="section-header">
-                <h2>🎁 العروض اليومية</h2>
-                <p>عروض خاصة وجديدة كل يوم</p>
-            </div>
-            <div class="offers-grid">
-                <div class="offer-card">
-                    <div class="offer-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <h3>باقة الأسرة</h3>
-                    <p>دجاج مقلي + بطاطس + شوربة</p>
-                    <div class="offer-price">
-                        <span class="old-price">٨٠ درهم</span>
-                        <span class="new-price">٦٥ درهم</span>
-                    </div>
-                    <div class="offer-badge">خصم ٢٠٪</div>
+            <h2 class="section-title">لماذا تختار كريسبى تشيكن؟</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-percentage"></i>
+                    <h3>عروض يومية</h3>
+                    <p>استمتع بعروض وتخفيضات مميزة كل يوم</p>
                 </div>
-                <div class="offer-card">
-                    <div class="offer-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3>باقة الملوك</h3>
-                    <p>دجاج مقلي كبير + أطباق جانبية</p>
-                    <div class="offer-price">
-                        <span class="old-price">١٢٠ درهم</span>
-                        <span class="new-price">٩٥ درهم</span>
-                    </div>
-                    <div class="offer-badge">خصم ٢١٪</div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>طلب سهل</h3>
+                    <p>اطلب عبر الهاتف أو واتساب بسهولة</p>
                 </div>
-                <div class="offer-card">
-                    <div class="offer-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>باقة النجوم</h3>
-                    <p>دجاج مقلي + مشروبات + حلوى</p>
-                    <div class="offer-price">
-                        <span class="old-price">٩٠ درهم</span>
-                        <span class="new-price">٧٥ درهم</span>
-                    </div>
-                    <div class="offer-badge">خصم ١٧٪</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- خدمات التوصيل -->
-    <section id="delivery" class="delivery">
-        <div class="container">
-            <div class="section-header">
-                <h2>🚚 خدمة التوصيل</h2>
-                <p>نوصل طلبك إلى باب منزلك في جميع أنحاء الإمارات</p>
-            </div>
-            <div class="delivery-features">
-                <div class="feature">
-                    <i class="fas fa-clock"></i>
+                
+                <div class="feature-card">
+                    <i class="fas fa-truck"></i>
                     <h3>توصيل سريع</h3>
-                    <p>في غضون ٣٠ دقيقة</p>
+                    <p>توصيل لجميع أنحاء الإمارات</p>
                 </div>
-                <div class="feature">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>توصيل لكل الإمارات</h3>
-                    <p>دبي - أبوظبي - الشارقة</p>
-                </div>
-                <div class="feature">
-                    <i class="fas fa-temperature-high"></i>
-                    <h3>توصيل ساخن</h3>
-                    <p>حافظ على حرارة الطعام</p>
-                </div>
-            </div>
-            <div class="delivery-methods">
-                <h3>طرق الطلب</h3>
-                <div class="methods-grid">
-                    <div class="method">
-                        <i class="fas fa-phone-alt"></i>
-                        <h4>اتصال هاتفي</h4>
-                        <p>600 527488</p>
-                    </div>
-                    <div class="method">
-                        <i class="fab fa-whatsapp"></i>
-                        <h4>واتساب</h4>
-                        <p>050 188 2206</p>
-                    </div>
-                    <div class="method">
-                        <i class="fas fa-globe"></i>
-                        <h4>الموقع الإلكتروني</h4>
-                        <p>crispychicken-uae.com</p>
-                    </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>رأيك مهم لنا</h3>
+                    <p>تواصل معنا لأي ملاحظات أو اقتراحات</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- آراء العملاء -->
-    <section id="feedback" class="feedback">
+    <!-- Delivery Section -->
+    <section class="delivery">
         <div class="container">
-            <div class="section-header">
-                <h2>💬 آراء العملاء</h2>
-                <p>ماذا يقول عملاؤنا عننا</p>
-            </div>
-            <div class="feedback-slider owl-carousel">
-                <div class="feedback-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+            <h2 class="section-title">خدمة التوصيل</h2>
+            
+            <div class="delivery-content">
+                <div class="delivery-map"></div>
+                
+                <div class="delivery-info">
+                    <h3>نصل لكل مكان في الإمارات</h3>
+                    <p>توصيل سريع وموثوق لجميع مناطق الإمارات:</p>
+                    
+                    <div class="delivery-areas">
+                        <span class="area-tag">دبي</span>
+                        <span class="area-tag">أبوظبي</span>
+                        <span class="area-tag">الشارقة</span>
+                        <span class="area-tag">عجمان</span>
+                        <span class="area-tag">عمان</span>
+                        <span class="area-tag">الفجيرة</span>
+                        <span class="area-tag">الرقة</span>
+                        <span class="area-tag">أم القيوين</span>
                     </div>
-                    <p>"أفضل دجاج مقلي في الإمارات! الجودة ممتازة والسعر مناسب"</p>
-                    <div class="customer">
-                        <img src="https://via.placeholder.com/50" alt="Customer">
+                    
+                    <p><i class="fas fa-clock"></i> وقت التوصيل: 30-45 دقيقة</p>
+                    <p><i class="fas fa-shipping-fast"></i> توصيل مجاني للطلبات فوق 100 درهم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">آراء العملاء</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        "أفضل دجاج مقلي في الإمارات! التوصيل سريع والطعم لا يضاهى. العروض مميزة جدًا"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">أ</div>
                         <div>
                             <h4>أحمد محمد</h4>
                             <p>دبي</p>
                         </div>
                     </div>
                 </div>
-                <div class="feedback-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"التوصيل سريع والطعام دائمًا ساخن ومذاقه رائع"</p>
-                    <div class="customer">
-                        <img src="https://via.placeholder.com/50" alt="Customer">
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        "الصلصة الثوم رائعة جدًا! أسعار مناسبة وتوصيل في الوقت المحدد. موصى به بشدة"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">س</div>
                         <div>
-                            <h4>فاطمة علي</h4>
+                            <h4>سارة خالد</h4>
                             <p>أبوظبي</p>
                         </div>
                     </div>
                 </div>
-                <div class="feedback-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"الخدمة ممتازة والعروض جذابة. سأعود مجددًا"</p>
-                    <div class="customer">
-                        <img src="https://via.placeholder.com/50" alt="Customer">
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-content">
+                        "خدمة العملاء ممتازة والجودة دائمًا متوقعة. العروض اليومية تجعلني أطلب بانتظام"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">م</div>
                         <div>
-                            <h4>خالد سالم</h4>
+                            <h4>محمد علي</h4>
                             <p>الشارقة</p>
                         </div>
                     </div>
@@ -249,121 +612,173 @@
         </div>
     </section>
 
-    <!-- نموذج الاتصال -->
-    <section id="contact" class="contact">
+    <!-- Contact Section -->
+    <section class="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>📞 اتصل بنا</h2>
-                <p>للشكاوى أو المقترحات</p>
-            </div>
+            <h2 class="section-title">تواصل معنا</h2>
+            
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-item">
+                <div class="contact-form">
+                    <h3>أرسل لنا رسالة</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">الموضوع</label>
+                            <select id="subject">
+                                <option>شكوى</option>
+                                <option>اقتراح</option>
+                                <option>استفسار عام</option>
+                                <option>طلب توظيف</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">الرسالة</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+                
+                <div class="contact-details">
+                    <h3>معلومات التواصل</h3>
+                    
+                    <div class="contact-item">
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <h4>مركز الاتصال</h4>
                             <p>600 527488</p>
                         </div>
                     </div>
-                    <div class="info-item">
+                    
+                    <div class="contact-item">
                         <i class="fas fa-mobile-alt"></i>
                         <div>
                             <h4>جوال</h4>
                             <p>050 188 2206</p>
                         </div>
                     </div>
-                    <div class="info-item">
+                    
+                    <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>البريد الإلكتروني</h4>
                             <p>kenawe@crispychicken.rest</p>
                         </div>
                     </div>
-                    <div class="info-item">
+                    
+                    <div class="contact-item">
                         <i class="fas fa-globe"></i>
                         <div>
                             <h4>الموقع الإلكتروني</h4>
                             <p>crispychicken-uae.com</p>
                         </div>
                     </div>
+                    
+                    <h3>تابعنا</h3>
+                    <div class="social-links">
+                        <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="الاسم الكامل" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="رقم الهاتف" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="البريد الإلكتروني" required>
-                    </div>
-                    <div class="form-group">
-                        <select required>
-                            <option value="">اختر نوع الاتصال</option>
-                            <option value="complaint">شكوى</option>
-                            <option value="suggestion">اقتراح</option>
-                            <option value="inquiry">استفسار</option>
-                            <option value="feedback">ملاحظة</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="اكتب رسالتك هنا..." rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
-                </form>
             </div>
         </div>
     </section>
 
-    <!-- وسائل التواصل -->
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png" alt="Crispy Chicken UAE">
-                    <p>© 2025 Crispy Chicken UAE</p>
+                <div class="social-links">
+                    <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                 </div>
-                <div class="footer-links">
-                    <h4>تابعنا</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-quick-links">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#offers">العروض</a></li>
-                        <li><a href="#ultimate-offer">عرض خاص</a></li>
-                        <li><a href="#delivery">التوصيل</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                    </ul>
+                
+                <div class="copyright">
+                    © 2025 كريسبى تشيكن الإمارات. جميع الحقوق محفوظة
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- رسالة نجاح -->
-    <div class="success-message">
-        <div class="success-content">
-            <i class="fas fa-check-circle"></i>
-            <h3>تم إرسال الرسالة بنجاح!</h3>
-            <p>سنرد عليك في أقرب وقت ممكن</p>
-            <button class="close-btn">إغلاق</button>
-        </div>
-    </div>
-
-    <!-- مكتبات JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMessage = `الاسم: ${name}%0Aالهاتف: ${phone}%0Aالبريد: ${email}%0Aالموضوع: ${subject}%0Aالرسالة: ${message}`;
+            
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/971501882206?text=${whatsappMessage}`, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت ممكن.');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
