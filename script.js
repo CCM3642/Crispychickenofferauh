@@ -105,7 +105,7 @@ $(document).ready(function() {
         $('.success-message').fadeOut();
     });
     
-    // إضافة تأثيرات عند التمرير
+    // تأثيرات عند التمرير
     function animateOnScroll() {
         const elements = $('.offer-card, .feature, .method, .info-item');
         
@@ -195,6 +195,33 @@ $(document).ready(function() {
         },
         function() {
             $(this).css('transform', 'translateY(0)');
+        }
+    );
+    
+    // تأثيرات لعرض Ultimate Offer
+    $('.ultimate-offer').waypoint(function() {
+        $('.ultimate-offer').addClass('animate');
+    }, {
+        offset: '80%'
+    });
+    
+    // إضافة تأثيرات للعرض الخاص
+    $('.order-now').hover(
+        function() {
+            $(this).css('transform', 'scale(1.05)');
+        },
+        function() {
+            $(this).css('transform', 'scale(1)');
+        }
+    );
+    
+    // تأثيرات للتفاصيل
+    $('.detail-item').hover(
+        function() {
+            $(this).css('background', '#fff3e0');
+        },
+        function() {
+            $(this).css('background', '#f8f9fa');
         }
     );
 });
