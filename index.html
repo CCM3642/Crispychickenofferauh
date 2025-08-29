@@ -1,238 +1,327 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crispy Chicken UAE</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            text-align: center;
-            background-color: #fff;
-            margin: 0;
-            padding: 0;
-        }
-
-        .hide {
-            display: none;
-        }
-
-        .active {
-            font-weight: bold;
-            background-color: #d93900;
-            color: white;
-        }
-
-        header {
-            padding: 20px;
-        }
-
-        #promo-banner {
-            background: #d93900;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            animation: slide 10s infinite linear;
-            white-space: nowrap;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .lang-switch {
-            margin: 10px 0;
-        }
-
-        .lang-switch button {
-            padding: 10px 20px;
-            margin: 5px;
-            cursor: pointer;
-        }
-
-        .admin-login,
-        .admin-area {
-            margin: 20px;
-        }
-
-        .offers {
-            margin: 20px;
-            font-size: 1.2em;
-        }
-
-        .hotline {
-            margin: 10px;
-            font-weight: bold;
-        }
-
-        .contact-btns {
-            margin: 20px;
-        }
-
-        .contact-btns a {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 15px;
-            color: white;
-            background-color: #555;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .contact-btns .whatsapp { background-color: #25d366; }
-        .contact-btns .facebook { background-color: #3b5998; }
-        .contact-btns .instagram { background-color: #c13584; }
-        .contact-btns .tiktok { background-color: #000; }
-        .contact-btns .website { background-color: #d93900; }
-
-        form {
-            margin: 30px auto;
-            max-width: 500px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        form button {
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: #d93900;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .error {
-            color: red;
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-    </style>
+    <title>🍗 Crispy Chicken UAE - مطعم الدجاج المقلي</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 <body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-logo">
+                <img src="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png" alt="Crispy Chicken UAE" class="logo">
+                <h1>🍗 Crispy Chicken UAE</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#offers">العروض</a></li>
+                <li><a href="#delivery">التوصيل</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+                <li><a href="#feedback">آراء العملاء</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <div id="promo-banner">
-        أحدث العروض لدينا - تابعنا للحصول على أفضل الأسعار!
-    </div>
-
-    <header>
-        <img src="https://github.com/CCM3642/Crispychickenofferauh/assets/1" alt="شعار كريسبي تشيكن UAE">
-        <h1 id="title-ar">Crispy Chicken UAE</h1>
-        <h1 id="title-en" class="hide">Crispy Chicken UAE</h1>
-        <p id="sub-ar">استمتع بأفضل العروض وتواصل معنا مباشرة!</p>
-        <p id="sub-en" class="hide">Enjoy the best offers and contact us directly!</p>
+    <!-- القسم الرئيسي -->
+    <header id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>أفضل دجاج مقلي في الإمارات</h2>
+                <p>جودة عالية، أسعار منافسة، توصيل سريع</p>
+                <div class="hero-buttons">
+                    <a href="#offers" class="btn btn-primary">عرض العروض</a>
+                    <a href="#contact" class="btn btn-secondary">اطلب الآن</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png" alt="Crispy Chicken">
+            </div>
+        </div>
     </header>
 
-    <div class="lang-switch">
-        <button id="lang-ar" class="active" onclick="setLang('ar')">عربي</button>
-        <button id="lang-en" onclick="setLang('en')">EN</button>
-    </div>
-
-    <section>
-
-        <!-- تسجيل دخول الأدمن -->
-        <div id="admin-login" class="admin-login">
-            <input type="password" id="admin-pass" placeholder="كلمة مرور الأدمن / Admin password">
-            <button onclick="loginAdmin()">دخول الأدمن / Admin Login</button>
+    <!-- العروض اليومية -->
+    <section id="offers" class="offers">
+        <div class="container">
+            <div class="section-header">
+                <h2>🎁 العروض اليومية</h2>
+                <p>عروض خاصة وجديدة كل يوم</p>
+            </div>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>باقة الأسرة</h3>
+                    <p>دجاج مقلي + بطاطس + شوربة</p>
+                    <div class="offer-price">
+                        <span class="old-price">٨٠ درهم</span>
+                        <span class="new-price">٦٥ درهم</span>
+                    </div>
+                    <div class="offer-badge">خصم ٢٠٪</div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>باقة الملوك</h3>
+                    <p>دجاج مقلي كبير + أطباق جانبية</p>
+                    <div class="offer-price">
+                        <span class="old-price">١٢٠ درهم</span>
+                        <span class="new-price">٩٥ درهم</span>
+                    </div>
+                    <div class="offer-badge">خصم ٢١٪</div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>باقة النجوم</h3>
+                    <p>دجاج مقلي + مشروبات + حلوى</p>
+                    <div class="offer-price">
+                        <span class="old-price">٩٠ درهم</span>
+                        <span class="new-price">٧٥ درهم</span>
+                    </div>
+                    <div class="offer-badge">خصم ١٧٪</div>
+                </div>
+            </div>
         </div>
-
-        <!-- منطقة الأدمن -->
-        <div id="admin-area" class="admin-area hide">
-            <h3 id="admin-title-ar">تعديل العروض</h3>
-            <h3 id="admin-title-en" class="hide">Edit Offers</h3>
-            <textarea id="offers-admin" rows="6" style="width:100%;"></textarea><br>
-            <button onclick="updateOffers()">تحديث العروض / Update Offers</button>
-            <button onclick="logoutAdmin()" style="background:#999; color:#fff; margin-right:10px;">خروج الأدمن / Admin Logout</button>
-        </div>
-
-        <!-- العروض الحالية -->
-        <div class="offers" id="offers-list">
-            <!-- العروض ستظهر هنا -->
-        </div>
-
-        <!-- الخط الساخن -->
-        <div class="hotline" id="hotline-ar">
-            الخط الساخن: 600527488
-        </div>
-        <div class="hotline hide" id="hotline-en">
-            Hotline: 600527488
-        </div>
-
-        <!-- أزرار التواصل -->
-        <div class="contact-btns">
-            <a class="whatsapp" href="https://wa.me/971501882206?text=أرغب%20في%20طلب%20أوردر%20أو%20عرض" target="_blank" id="whatsapp-ar">واتساب</a>
-            <a class="whatsapp hide" href="https://wa.me/971501882206?text=I%20want%20to%20order%20or%20inquire%20about%20an%20offer" target="_blank" id="whatsapp-en">WhatsApp</a>
-            <a class="facebook" href="https://www.facebook.com/share/1Av1jWFRLa/?mibextid=wwXIfr" target="_blank">فيسبوك</a>
-            <a class="instagram" href="https://www.instagram.com/crispychickenae/?utm_source=ig_web_button_share_sheet" target="_blank">إنستجرام</a>
-            <a class="tiktok" href="https://www.tiktok.com/@crispychicken.ae?_t=ZS-8zEwXQ8Aq4G&_r=1" target="_blank">تيك توك</a>
-            <a class="website" href="https://crispychicken-uae.com/" target="_blank">الموقع الرسمي</a>
-        </div>
-
-        <!-- نموذج الشكاوى والاقتراحات -->
-        <form action="mailto:Kenawe@crispychicken.rest" method="POST" enctype="text/plain">
-            <h3 id="form-title-ar">إرسال شكوى أو اقتراح</h3>
-            <h3 id="form-title-en" class="hide">Send Complaint or Suggestion</h3>
-            <input type="text" name="name" id="name-input" placeholder="الاسم" required>
-            <textarea name="message" rows="4" id="message-input" placeholder="اكتب شكواك أو اقتراحك هنا..." required></textarea>
-            <button type="submit" id="submit-ar">إرسال</button>
-            <button type="submit" id="submit-en" class="hide">Send</button>
-        </form>
     </section>
 
-    <script>
-        function setLang(lang) {
-            const elements = {
-                ar: ['title-ar', 'sub-ar', 'hotline-ar', 'whatsapp-ar', 'form-title-ar', 'submit-ar'],
-                en: ['title-en', 'sub-en', 'hotline-en', 'whatsapp-en', 'form-title-en', 'submit-en']
-            };
+    <!-- خدمات التوصيل -->
+    <section id="delivery" class="delivery">
+        <div class="container">
+            <div class="section-header">
+                <h2>🚚 خدمة التوصيل</h2>
+                <p>نوصل طلبك إلى باب منزلك في جميع أنحاء الإمارات</p>
+            </div>
+            <div class="delivery-features">
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h3>توصيل سريع</h3>
+                    <p>في غضون ٣٠ دقيقة</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>توصيل لكل الإمارات</h3>
+                    <p>دبي - أبوظبي - الشارقة</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-temperature-high"></i>
+                    <h3>توصيل ساخن</h3>
+                    <p>حافظ على حرارة الطعام</p>
+                </div>
+            </div>
+            <div class="delivery-methods">
+                <h3>طرق الطلب</h3>
+                <div class="methods-grid">
+                    <div class="method">
+                        <i class="fas fa-phone-alt"></i>
+                        <h4>اتصال هاتفي</h4>
+                        <p>600 527488</p>
+                    </div>
+                    <div class="method">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>واتساب</h4>
+                        <p>050 188 2206</p>
+                    </div>
+                    <div class="method">
+                        <i class="fas fa-globe"></i>
+                        <h4>الموقع الإلكتروني</h4>
+                        <p>crispychicken-uae.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            Object.keys(elements).forEach(language => {
-                elements[language].forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) el.style.display = (language === lang) ? 'block' : 'none';
-                });
-            });
+    <!-- آراء العملاء -->
+    <section id="feedback" class="feedback">
+        <div class="container">
+            <div class="section-header">
+                <h2>💬 آراء العملاء</h2>
+                <p>ماذا يقول عملاؤنا عننا</p>
+            </div>
+            <div class="feedback-slider owl-carousel">
+                <div class="feedback-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"أفضل دجاج مقلي في الإمارات! الجودة ممتازة والسعر مناسب"</p>
+                    <div class="customer">
+                        <img src="https://via.placeholder.com/50" alt="Customer">
+                        <div>
+                            <h4>أحمد محمد</h4>
+                            <p>دبي</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"التوصيل سريع والطعام دائمًا ساخن ومذاقه رائع"</p>
+                    <div class="customer">
+                        <img src="https://via.placeholder.com/50" alt="Customer">
+                        <div>
+                            <h4>فاطمة علي</h4>
+                            <p>أبوظبي</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"الخدمة ممتازة والعروض جذابة. سأعود مجددًا"</p>
+                    <div class="customer">
+                        <img src="https://via.placeholder.com/50" alt="Customer">
+                        <div>
+                            <h4>خالد سالم</h4>
+                            <p>الشارقة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            document.getElementById('lang-ar').classList.toggle('active', lang === 'ar');
-            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-        }
+    <!-- نموذج الاتصال -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>📞 اتصل بنا</h2>
+                <p>للشكاوى أو المقترحات</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>مركز الاتصال</h4>
+                            <p>600 527488</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h4>جوال</h4>
+                            <p>050 188 2206</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>البريد الإلكتروني</h4>
+                            <p>kenawe@crispychicken.rest</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h4>الموقع الإلكتروني</h4>
+                            <p>crispychicken-uae.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="الاسم الكامل" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="رقم الهاتف" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">اختر نوع الاتصال</option>
+                            <option value="complaint">شكوى</option>
+                            <option value="suggestion">اقتراح</option>
+                            <option value="inquiry">استفسار</option>
+                            <option value="feedback">ملاحظة</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="اكتب رسالتك هنا..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        function loginAdmin() {
-            const password = document.getElementById('admin-pass').value;
-            if (password === 'ccm123') {
-                document.getElementById('admin-area').style.display = 'block';
-                document.getElementById('admin-login').style.display = 'none';
-            } else {
-                alert('كلمة مرور غير صحيحة');
-            }
-        }
+    <!-- وسائل التواصل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://z-cdn-media.chatglm.cn/files/cd48ed1a-e80f-49cd-8a93-65adfdabf509_og-crispy-chicken-1200x630.png" alt="Crispy Chicken UAE">
+                    <p>© 2025 Crispy Chicken UAE</p>
+                </div>
+                <div class="footer-links">
+                    <h4>تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-quick-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#offers">العروض</a></li>
+                        <li><a href="#delivery">التوصيل</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-        function logoutAdmin() {
-            document.getElementById('admin-area').style.display = 'none';
-            document.getElementById('admin-login').style.display = 'block';
-        }
+    <!-- رسالة نجاح -->
+    <div class="success-message">
+        <div class="success-content">
+            <i class="fas fa-check-circle"></i>
+            <h3>تم إرسال الرسالة بنجاح!</h3>
+            <p>سنرد عليك في أقرب وقت ممكن</p>
+            <button class="close-btn">إغلاق</button>
+        </div>
+    </div>
 
-        function updateOffers() {
-            const content = document.getElementById('offers-admin').value;
-            document.getElementById('offers-list').innerText = content;
-            alert('تم تحديث العروض بنجاح');
-        }
-
-        // اجعل اللغة الافتراضية عربية
-        window.onload = function() {
-            setLang('ar');
-        };
-    </script>
+    <!-- مكتبات JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
