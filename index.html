@@ -8,21 +8,20 @@
     <style>
         /* Enhanced Ticker Bar Styles */
         :root {
-          --ticker-bg: #111827;    /* slate-900 */
-          --ticker-fg: #fef3c7;    /* amber-100 */
-          --accent:    #f59e0b;    /* amber-500 */
-          --speed:     20s;        /* faster scroll duration */
-          --height:    60px;       /* increased bar height */
-          --gap:       3rem;       /* space between repeats */
+          --ticker-bg: #111827;
+          --ticker-fg: #fef3c7;
+          --accent:    #f59e0b;
+          --speed:     20s;
+          --height:    60px;
+          --gap:       3rem;
           --font:      ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
         }
         
-        /* Enhanced Banner shell */
         .ticker {
           position: relative;
           height: var(--height);
           overflow: hidden;
-          background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+          background: linear-gradient(90deg, #e53e3e, #f59e0b, #e53e3e);
           background-size: 200% 100%;
           animation: gradient 3s linear infinite;
           color: white;
@@ -31,7 +30,7 @@
           border: 0;
           user-select: none;
           -webkit-user-select: none;
-          box-shadow: 0 4px 15px rgba(255, 107, 53, 0.5);
+          box-shadow: 0 4px 15px rgba(229, 62, 62, 0.5);
           z-index: 1001;
         }
         
@@ -40,21 +39,18 @@
           100% { background-position: 200% 50%; }
         }
         
-        /* Scrolling track */
         .ticker__track {
           display: flex;
           align-items: center;
           gap: var(--gap);
-          width: max-content; /* size to content */
+          width: max-content;
           will-change: transform;
           animation: scroll var(--speed) linear infinite;
         }
         
-        /* Pause on hover or focus (desktop/keyboard) */
         .ticker:focus-within .ticker__track,
         .ticker:hover .ticker__track { animation-play-state: paused; }
         
-        /* The repeated message chunks */
         .ticker__chunk {
           display: inline-flex;
           align-items: center;
@@ -73,7 +69,7 @@
         }
         
         .badge { 
-          background: #ff3d00; 
+          background: #e53e3e; 
           color: white; 
           padding: 0.2rem 0.8rem; 
           border-radius: 999px; 
@@ -106,25 +102,14 @@
           50% { transform: translateY(-5px); }
         }
         
-        /* Keyframes create an endless loop because we duplicate the content */
         @keyframes scroll {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
         }
         
-        /* Respect users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
           .ticker__track { animation: none; }
           .badge, .emoji { animation: none; }
-        }
-        
-        /* Light mode variant */
-        @media (prefers-color-scheme: light) {
-          :root { 
-            --ticker-bg: #fff7ed; 
-            --ticker-fg: #111827; 
-            --accent: #ea580c; 
-          }
         }
         
         * {
@@ -149,7 +134,7 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            background: linear-gradient(135deg, #e53e3e 0%, #f59e0b 100%);
             color: white;
             padding: 15px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -167,7 +152,7 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             font-size: 24px;
             font-weight: bold;
             transition: transform 0.3s ease;
@@ -177,9 +162,13 @@
             transform: scale(1.05);
         }
         
-        .logo i {
-            font-size: 32px;
+        .logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
             animation: bounce 2s infinite;
+            mix-blend-mode: multiply;
+            filter: brightness(1.2) contrast(1.1);
         }
         
         @keyframes bounce {
@@ -210,7 +199,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://z-cdn-media.chatglm.cn/files/85821fb5-3c78-41be-89ab-9f09ccce5ac7_452199d4-d5ab-44e6-b869-056ea4b6b0e3.jpeg?auth_key=1788697207-5e5b0cb568e249d98754c7ea3dc15d9a-0-de8263f0207ddcd538328142ab06857b') center/cover;
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -229,12 +218,17 @@
             z-index: 1;
         }
         
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 2;
             animation: fadeInDown 1s ease;
         }
         
@@ -243,8 +237,22 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        .brand-logo-hero {
+            margin-bottom: 30px;
+            animation: fadeInDown 1.2s ease;
+        }
+        
+        .brand-logo-hero img {
+            max-width: 100%;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            filter: brightness(1.2) contrast(1.1);
+        }
+        
         .special-offer {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            background: linear-gradient(135deg, #e53e3e 0%, #f59e0b 100%);
             border-radius: 15px;
             padding: 40px;
             max-width: 800px;
@@ -259,7 +267,7 @@
         
         @keyframes pulse {
             0% { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
-            50% { box-shadow: 0 10px 40px rgba(255,107,53,0.4); }
+            50% { box-shadow: 0 10px 40px rgba(229, 62, 62, 0.4); }
             100% { box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         }
         
@@ -281,7 +289,7 @@
         }
         
         @keyframes flame {
-            0%, 100% { color: #ff6b35; transform: scale(1); }
+            0%, 100% { color: #e53e3e; transform: scale(1); }
             50% { color: #ff9558; transform: scale(1.1); }
         }
         
@@ -325,7 +333,7 @@
             top: -10px;
             right: -40px;
             font-size: 0.8rem;
-            background: #ff3d00;
+            background: #e53e3e;
             padding: 2px 8px;
             border-radius: 10px;
             transform: rotate(15deg);
@@ -400,7 +408,7 @@
         
         .order-button.call {
             background: white;
-            color: #ff6b35;
+            color: #e53e3e;
         }
         
         .order-button::before {
@@ -431,7 +439,7 @@
             background: #f8f9fa;
         }
         
-        /* Enhanced Contact Section */
+        /* Contact Section */
         .contact {
             padding: 80px 0;
             background: white;
@@ -445,7 +453,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+            background: linear-gradient(90deg, #e53e3e, #f59e0b, #e53e3e);
             background-size: 200% 100%;
             animation: gradient 3s linear infinite;
         }
@@ -459,7 +467,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
-            color: #ff6b35;
+            color: #e53e3e;
             position: relative;
             display: inline-block;
             width: 100%;
@@ -473,7 +481,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 3px;
-            background: #ff6b35;
+            background: #e53e3e;
             border-radius: 3px;
         }
         
@@ -499,7 +507,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            background: linear-gradient(90deg, #e53e3e, #f59e0b);
         }
         
         .form-group {
@@ -528,8 +536,8 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: #ff6b35;
-            box-shadow: 0 0 0 3px rgba(255,107,53,0.2);
+            border-color: #e53e3e;
+            box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.2);
             outline: none;
         }
         
@@ -539,7 +547,7 @@
         }
         
         .form-group .error {
-            color: #e74c3c;
+            color: #e53e3e;
             font-size: 0.85rem;
             margin-top: 5px;
             display: none;
@@ -553,7 +561,7 @@
         }
         
         .submit-btn {
-            background: #ff6b35;
+            background: #e53e3e;
             color: white;
             border: none;
             padding: 15px 30px;
@@ -567,7 +575,7 @@
         }
         
         .submit-btn:hover {
-            background: #e55a2b;
+            background: #c53030;
             transform: translateY(-2px);
         }
         
@@ -585,7 +593,7 @@
         .contact-details h3 {
             font-size: 1.8rem;
             margin-bottom: 25px;
-            color: #ff6b35;
+            color: #e53e3e;
             position: relative;
         }
         
@@ -596,7 +604,7 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: #ff6b35;
+            background: #e53e3e;
         }
         
         .contact-item {
@@ -618,7 +626,7 @@
         
         .contact-item i {
             font-size: 1.5rem;
-            color: #ff6b35;
+            color: #e53e3e;
             width: 40px;
             text-align: center;
         }
@@ -645,7 +653,7 @@
             justify-content: center;
             width: 50px;
             height: 50px;
-            background: #ff6b35;
+            background: #e53e3e;
             color: white;
             border-radius: 50%;
             font-size: 1.5rem;
@@ -674,18 +682,18 @@
         
         .social-links a:hover {
             transform: scale(1.1);
-            background: #e55a2b;
+            background: #c53030;
         }
         
         .current-time {
-            background: #ff6b35;
+            background: #e53e3e;
             color: white;
             padding: 10px 15px;
             border-radius: 8px;
             margin-bottom: 20px;
             text-align: center;
             font-weight: bold;
-            box-shadow: 0 3px 10px rgba(255,107,53,0.3);
+            box-shadow: 0 3px 10px rgba(229, 62, 62, 0.3);
         }
         
         .map-container {
@@ -708,14 +716,14 @@
         }
         
         .contact-promo {
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            background: linear-gradient(135deg, #e53e3e, #f59e0b);
             color: white;
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
             text-align: center;
             font-weight: bold;
-            box-shadow: 0 5px 15px rgba(255,107,53,0.3);
+            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.3);
         }
         
         .contact-promo i {
@@ -777,7 +785,7 @@
         }
         
         .notification.error {
-            border-left: 4px solid #e74c3c;
+            border-left: 4px solid #e53e3e;
         }
         
         .notification i {
@@ -789,7 +797,7 @@
         }
         
         .notification.error i {
-            color: #e74c3c;
+            color: #e53e3e;
         }
         
         .notification-content {
@@ -901,11 +909,9 @@
     </style>
 </head>
 <body>
-    <!-- Enhanced Ticker Bar -->
+    <!-- Ticker Bar -->
     <div class="ticker" role="region" aria-label="Opening soon announcement">
-        <!-- A static, screen-reader-friendly announcement so SRs don't read the moving text endlessly -->
         <span id="sr-announcement" class="sr-only" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">Crispy Chicken — Al Rigga, Dubai. Grand opening very soon.</span>
-        <!-- The moving track: we duplicate the sequence twice for a seamless loop -->
         <div class="ticker__track" aria-hidden="true">
             <div class="ticker__sequence" style="display:flex;align-items:center;gap:var(--gap);">
                 <span class="ticker__chunk">
@@ -934,7 +940,6 @@
                     <span class="emoji">🍗</span>
                 </span>
             </div>
-            <!-- duplicate for seamless loop -->
             <div class="ticker__sequence" style="display:flex;align-items:center;gap:var(--gap);">
                 <span class="ticker__chunk">
                     <span class="badge">NEW BRANCH</span> 
@@ -970,8 +975,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <i class="fas fa-drumstick-bite"></i>
-                    Crispy Chicken UAE
+                    <img src="https://z-cdn-media.chatglm.cn/files/4547443f-8e6d-4392-b793-6bfb185570ae_og-crispy-chicken-1200x630.png?auth_key=1788697207-688c745adaac44e6aebcd392ddef067c-0-25824f8202512fab94890109d89fabd5" alt="Crispy Chicken Logo" class="logo-image">
                 </div>
                 <div class="contact-info">
                     <a href="tel:600527488">
@@ -990,72 +994,78 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Best Fried Chicken in UAE</h1>
-            
-            <div class="special-offer">
-                <div class="offer-header">
-                    <i class="fas fa-fire"></i>
-                    Unmissable Offer
+            <div class="hero-content">
+                <div class="brand-logo-hero">
+                    <img src="https://z-cdn-media.chatglm.cn/files/4547443f-8e6d-4392-b793-6bfb185570ae_og-crispy-chicken-1200x630.png?auth_key=1788697207-688c745adaac44e6aebcd392ddef067c-0-25824f8202512fab94890109d89fabd5" alt="Crispy Chicken Logo">
                 </div>
                 
-                <div class="offer-content">
-                    <div class="offer-item">
-                        <i class="fas fa-drumstick-bite"></i>
-                        <h3>12 Pieces of Chicken</h3>
-                    </div>
-                    <div class="offer-item">
-                        <i class="fas fa-pepper-hot"></i>
-                        <h3>3 Garlic Sauces</h3>
-                    </div>
-                    <div class="offer-item">
-                        <i class="fas fa-tag"></i>
-                        <h3>Only 30 AED</h3>
-                    </div>
-                </div>
+                <h1>Best Fried Chicken in UAE</h1>
                 
-                <div class="offer-price">30 AED</div>
-                
-                <div class="offer-days">
-                    <i class="fas fa-calendar-alt"></i>
-                    Valid on: Monday and Tuesday (September 8-9)
-                </div>
-                
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="days">00</span>
-                        <span class="countdown-label">Days</span>
+                <div class="special-offer">
+                    <div class="offer-header">
+                        <i class="fas fa-fire"></i>
+                        Unmissable Offer
                     </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="hours">00</span>
-                        <span class="countdown-label">Hours</span>
+                    
+                    <div class="offer-content">
+                        <div class="offer-item">
+                            <i class="fas fa-drumstick-bite"></i>
+                            <h3>12 Pieces of Chicken</h3>
+                        </div>
+                        <div class="offer-item">
+                            <i class="fas fa-pepper-hot"></i>
+                            <h3>3 Garlic Sauces</h3>
+                        </div>
+                        <div class="offer-item">
+                            <i class="fas fa-tag"></i>
+                            <h3>Only 30 AED</h3>
+                        </div>
                     </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="minutes">00</span>
-                        <span class="countdown-label">Minutes</span>
+                    
+                    <div class="offer-price">30 AED</div>
+                    
+                    <div class="offer-days">
+                        <i class="fas fa-calendar-alt"></i>
+                        Valid on: Monday and Tuesday (September 8-9)
                     </div>
-                    <div class="countdown-item">
-                        <span class="countdown-value" id="seconds">00</span>
-                        <span class="countdown-label">Seconds</span>
+                    
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="days">00</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="hours">00</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="minutes">00</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-value" id="seconds">00</span>
+                            <span class="countdown-label">Seconds</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="order-buttons">
-                    <a href="https://wa.me/971501882206?text=Order for the Perfect Offer: 12 pieces of chicken + 3 garlic sauces - 30 AED" 
-                       class="order-button whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Order on WhatsApp
-                    </a>
-                    <a href="tel:0501882206" 
-                       class="order-button call">
-                        <i class="fas fa-phone-alt"></i>
-                        Call to Order
-                    </a>
+                    
+                    <div class="order-buttons">
+                        <a href="https://wa.me/971501882206?text=Order for the Perfect Offer: 12 pieces of chicken + 3 garlic sauces - 30 AED" 
+                           class="order-button whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Order on WhatsApp
+                        </a>
+                        <a href="tel:0501882206" 
+                           class="order-button call">
+                            <i class="fas fa-phone-alt"></i>
+                            Call to Order
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Enhanced Contact Section -->
+    <!-- Contact Section -->
     <section class="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -1212,37 +1222,28 @@
     <script>
         // Countdown Timer
         function updateCountdown() {
-            // Set the date we're counting down to (September 9, 2025)
             const countDownDate = new Date("Sep 9, 2025 23:59:59").getTime();
-            
-            // Get today's date and time
             const now = new Date().getTime();
-            
-            // Find the distance between now and the count down date
             const distance = countDownDate - now;
             
-            // Time calculations for days, hours, minutes and seconds
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
-            // Display the result
             document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
             document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
             document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
             
-            // If the count down is finished, display a message
             if (distance < 0) {
                 clearInterval(countdownInterval);
                 document.getElementById("countdown").innerHTML = "<div class='countdown-item'><span class='countdown-value'>EXPIRED</span></div>";
             }
         }
         
-        // Update countdown every second
         const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Run once immediately
+        updateCountdown();
         
         // Current Time in UAE
         function updateCurrentTime() {
@@ -1262,9 +1263,8 @@
             document.getElementById('currentTime').innerHTML = `<i class="fas fa-clock"></i> ${timeString} (UAE Time)`;
         }
         
-        // Update time every second
         setInterval(updateCurrentTime, 1000);
-        updateCurrentTime(); // Run once immediately
+        updateCurrentTime();
         
         // Form validation
         const form = document.getElementById('contactForm');
@@ -1274,7 +1274,6 @@
         const messageInput = document.getElementById('message');
         const submitBtn = document.getElementById('submitBtn');
         
-        // Real-time validation
         nameInput.addEventListener('input', validateName);
         phoneInput.addEventListener('input', validatePhone);
         emailInput.addEventListener('input', validateEmail);
@@ -1350,43 +1349,32 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Validate all fields
             const isNameValid = validateName();
             const isPhoneValid = validatePhone();
             const isEmailValid = validateEmail();
             const isMessageValid = validateMessage();
             
             if (isNameValid && isPhoneValid && isEmailValid && isMessageValid) {
-                // Disable submit button
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending...';
                 
-                // Get form values
                 const name = nameInput.value;
                 const phone = phoneInput.value;
                 const email = emailInput.value;
                 const subject = document.getElementById('subject').value;
                 const message = messageInput.value;
                 
-                // Create WhatsApp message
                 const whatsappMessage = `Name: ${name}%0APhone: ${phone}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`;
                 
-                // Simulate form submission (in a real app, you would send this to a server)
                 setTimeout(() => {
-                    // Open WhatsApp with pre-filled message
                     window.open(`https://wa.me/971501882206?text=${whatsappMessage}`, '_blank');
                     
-                    // Reset form
                     form.reset();
-                    
-                    // Hide all success messages
                     document.querySelectorAll('.success').forEach(el => el.style.display = 'none');
                     
-                    // Re-enable submit button
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Send Message';
                     
-                    // Show notification
                     showNotification('success', 'Success', 'Your message has been sent successfully!');
                 }, 1500);
             }
@@ -1404,30 +1392,23 @@
             const notificationMessage = notification.querySelector('.notification-message');
             const notificationIcon = notification.querySelector('i');
             
-            // Set notification content
             notificationTitle.textContent = title;
             notificationMessage.textContent = message;
-            
-            // Set notification type
             notification.className = 'notification ' + type;
             
-            // Set icon
             if (type === 'success') {
                 notificationIcon.className = 'fas fa-check-circle';
             } else if (type === 'error') {
                 notificationIcon.className = 'fas fa-exclamation-circle';
             }
             
-            // Show notification
             notification.classList.add('show');
             
-            // Auto hide after 5 seconds
             setTimeout(() => {
                 notification.classList.remove('show');
             }, 5000);
         }
         
-        // Close notification
         document.getElementById('notificationClose').addEventListener('click', function() {
             document.getElementById('notification').classList.remove('show');
         });
@@ -1449,7 +1430,7 @@
         // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px"
+            rootMargin: '0px 0px -100px 0px'
         };
         
         const observer = new IntersectionObserver(function(entries) {
@@ -1461,7 +1442,6 @@
             });
         }, observerOptions);
         
-        // Observe all sections
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(20px)';
