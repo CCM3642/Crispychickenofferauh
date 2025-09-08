@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crispy Chicken UAE - Best Fried Chicken</title>
+    <title>Crispy Chicken Al Rigga - Coming Soon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Enhanced Ticker Bar Styles */
@@ -237,20 +237,118 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .brand-logo-hero {
+        /* Opening Soon Section */
+        .opening-soon {
+            padding: 60px 0;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .opening-soon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #e53e3e, #f59e0b, #e53e3e);
+            background-size: 200% 100%;
+            animation: gradient 3s linear infinite;
+        }
+        
+        .opening-soon-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .opening-soon-title {
+            font-size: 3rem;
+            color: #e53e3e;
             margin-bottom: 30px;
-            animation: fadeInDown 1.2s ease;
+            position: relative;
+            display: inline-block;
+            width: 100%;
         }
         
-        .brand-logo-hero img {
-            max-width: 100%;
+        .opening-soon-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #e53e3e;
+            border-radius: 3px;
+        }
+        
+        .opening-soon-visual {
+            margin: 40px auto;
+            max-width: 600px;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateY(0); }
+            50% { transform: translateY(-20px) rotateY(5deg); }
+        }
+        
+        .opening-soon-image {
+            width: 100%;
             height: auto;
-            max-height: 120px;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-            filter: brightness(1.2) contrast(1.1);
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
         }
         
+        .opening-soon-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 400px;
+            z-index: 3;
+            text-align: center;
+        }
+        
+        .opening-soon-text h2 {
+            font-size: 2.5rem;
+            color: #e53e3e;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .opening-soon-text p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .opening-soon-address {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .opening-soon-address i {
+            color: #e53e3e;
+            margin-right: 10px;
+        }
+        
+        /* Special Offer Section */
         .special-offer {
             background: linear-gradient(135deg, #e53e3e 0%, #f59e0b 100%);
             border-radius: 15px;
@@ -349,7 +447,7 @@
         }
         
         .countdown {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             margin-bottom: 25px;
             background: rgba(0,0,0,0.3);
             padding: 10px;
@@ -439,28 +537,10 @@
             background: #f8f9fa;
         }
         
-        /* Contact Section */
-        .contact {
+        /* Features Section */
+        .features {
             padding: 80px 0;
-            background: white;
-            position: relative;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #e53e3e, #f59e0b, #e53e3e);
-            background-size: 200% 100%;
-            animation: gradient 3s linear infinite;
-        }
-        
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 200% 50%; }
+            background: #f8f9fa;
         }
         
         .section-title {
@@ -483,6 +563,90 @@
             height: 3px;
             background: #e53e3e;
             border-radius: 3px;
+        }
+        
+        .features-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover .feature-image img {
+            transform: scale(1.1);
+        }
+        
+        .feature-content {
+            padding: 25px;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #e53e3e;
+        }
+        
+        .feature-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .feature-content a {
+            color: #e53e3e;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s ease;
+        }
+        
+        .feature-content a:hover {
+            gap: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: white;
+            position: relative;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #e53e3e, #f59e0b, #e53e3e);
+            background-size: 200% 100%;
+            animation: gradient 3s linear infinite;
         }
         
         .contact-content {
@@ -732,6 +896,27 @@
             animation: pulse 2s infinite;
         }
         
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Live Chat Button */
         .live-chat {
             position: fixed;
             bottom: 20px;
@@ -760,6 +945,7 @@
             animation: pulse 2s infinite;
         }
         
+        /* Notification */
         .notification {
             position: fixed;
             top: 20px;
@@ -824,26 +1010,6 @@
             color: #333;
         }
         
-        /* Footer */
-        footer {
-            background: #333;
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .copyright {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -853,6 +1019,14 @@
             
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            
+            .opening-soon-title {
+                font-size: 2rem;
+            }
+            
+            .opening-soon-text h2 {
+                font-size: 1.8rem;
             }
             
             .special-offer {
@@ -995,70 +1169,128 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="brand-logo-hero">
-                    <img src="https://z-cdn-media.chatglm.cn/files/4547443f-8e6d-4392-b793-6bfb185570ae_og-crispy-chicken-1200x630.png?auth_key=1788697207-688c745adaac44e6aebcd392ddef067c-0-25824f8202512fab94890109d89fabd5" alt="Crispy Chicken Logo">
+                <h1>Best Fried Chicken in UAE</h1>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Opening Soon Section -->
+    <section class="opening-soon">
+        <div class="container">
+            <div class="opening-soon-content">
+                <h2 class="opening-soon-title">Opening Soon</h2>
+                
+                <div class="opening-soon-visual">
+                    <img src="https://z-cdn-media.chatglm.cn/files/606dabac-50f6-473a-871f-d4d0b1b3e6e7_pasted_image_1757337610234.png?auth_key=1788874337-544b721ed06c469683d16fec7a509eac-0-5bd1b5db81df986a59f9dfe7b98d0465" alt="Opening Soon" class="opening-soon-image">
+                    
+                    <div class="opening-soon-text">
+                        <h2>OPENING SOON</h2>
+                        <p>Your date and address is here</p>
+                        <div class="opening-soon-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Al Rigga, Dubai, UAE
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Special Offer Section -->
+    <section class="special-offer">
+        <div class="container">
+            <div class="offer-header">
+                <i class="fas fa-fire"></i>
+                Grand Opening Special
+            </div>
+            
+            <div class="offer-content">
+                <div class="offer-item">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <h3>12 Pieces of Chicken</h3>
+                </div>
+                <div class="offer-item">
+                    <i class="fas fa-pepper-hot"></i>
+                    <h3>3 Garlic Sauces</h3>
+                </div>
+                <div class="offer-item">
+                    <i class="fas fa-tag"></i>
+                    <h3>Only 30 AED</h3>
+                </div>
+            </div>
+            
+            <div class="offer-price">30 AED</div>
+            
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            
+            <div class="order-buttons">
+                <a href="https://wa.me/971501882206?text=Order for the Grand Opening Special: 12 pieces of chicken + 3 garlic sauces - 30 AED" 
+                   class="order-button whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Pre-Order on WhatsApp
+                </a>
+                <a href="tel:0501882206" 
+                   class="order-button call">
+                    <i class="fas fa-phone-alt"></i>
+                    Call to Pre-Order
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Crispy Chicken</h2>
+            
+            <div class="features-content">
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://z-cdn-media.chatglm.cn/files/85821fb5-3c78-41be-89ab-9f09ccce5ac7_452199d4-d5ab-44e6-b869-056ea4b6b0e3.jpeg?auth_key=1788697207-5e5b0cb568e249d98754c7ea3dc15d9a-0-de8263f0207ddcd538328142ab06857b" alt="Fresh Ingredients">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Fresh Ingredients</h3>
+                        <p>We use only the freshest ingredients to ensure the highest quality in every bite.</p>
+                        <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
                 
-                <h1>Best Fried Chicken in UAE</h1>
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://z-cdn-media.chatglm.cn/files/4547443f-8e6d-4392-b793-6bfb185570ae_og-crispy-chicken-1200x630.png?auth_key=1788697207-688c745adaac44e6aebcd392ddef067c-0-25824f8202512fab94890109d89fabd5" alt="Secret Recipe">
+                    </div>
+                    <div class="feature-content">
+                        <h3>Secret Recipe</h3>
+                        <p>Our secret family recipe has been perfected over generations for the perfect crispy texture.</p>
+                        <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
                 
-                <div class="special-offer">
-                    <div class="offer-header">
-                        <i class="fas fa-fire"></i>
-                        Unmissable Offer
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://z-cdn-media.chatglm.cn/files/606dabac-50f6-473a-871f-d4d0b1b3e6e7_pasted_image_1757337610234.png?auth_key=1788874337-544b721ed06c469683d16fec7a509eac-0-5bd1b5db81df986a59f9dfe7b98d0465" alt="Opening Soon">
                     </div>
-                    
-                    <div class="offer-content">
-                        <div class="offer-item">
-                            <i class="fas fa-drumstick-bite"></i>
-                            <h3>12 Pieces of Chicken</h3>
-                        </div>
-                        <div class="offer-item">
-                            <i class="fas fa-pepper-hot"></i>
-                            <h3>3 Garlic Sauces</h3>
-                        </div>
-                        <div class="offer-item">
-                            <i class="fas fa-tag"></i>
-                            <h3>Only 30 AED</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="offer-price">30 AED</div>
-                    
-                    <div class="offer-days">
-                        <i class="fas fa-calendar-alt"></i>
-                        Valid on: Monday and Tuesday (September 8-9)
-                    </div>
-                    
-                    <div class="countdown" id="countdown">
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="days">00</span>
-                            <span class="countdown-label">Days</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="hours">00</span>
-                            <span class="countdown-label">Hours</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="minutes">00</span>
-                            <span class="countdown-label">Minutes</span>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-value" id="seconds">00</span>
-                            <span class="countdown-label">Seconds</span>
-                        </div>
-                    </div>
-                    
-                    <div class="order-buttons">
-                        <a href="https://wa.me/971501882206?text=Order for the Perfect Offer: 12 pieces of chicken + 3 garlic sauces - 30 AED" 
-                           class="order-button whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            Order on WhatsApp
-                        </a>
-                        <a href="tel:0501882206" 
-                           class="order-button call">
-                            <i class="fas fa-phone-alt"></i>
-                            Call to Order
-                        </a>
+                    <div class="feature-content">
+                        <h3>New Location</h3>
+                        <p>Coming soon to Al Rigga! Experience our delicious chicken in a brand new location.</p>
+                        <a href="#">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1072,7 +1304,7 @@
             
             <div class="contact-content">
                 <div class="contact-form">
-                    <h3>Send us a message</h3>
+                    <h3>Stay Updated</h3>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -1098,9 +1330,9 @@
                         <div class="form-group">
                             <label for="subject">Subject</label>
                             <select id="subject">
-                                <option>Complaint</option>
-                                <option>Suggestion</option>
                                 <option>General Inquiry</option>
+                                <option>Pre-Order</option>
+                                <option>Franchise Opportunity</option>
                                 <option>Job Application</option>
                             </select>
                         </div>
@@ -1174,7 +1406,7 @@
                     
                     <div class="contact-promo">
                         <i class="fas fa-percentage"></i>
-                        Get 10% off on your first order when you contact us!
+                        Get 15% off on your first order when you contact us!
                     </div>
                 </div>
             </div>
@@ -1198,7 +1430,7 @@
                 </div>
                 
                 <div class="copyright">
-                    © 2025 Crispy Chicken UAE. All Rights Reserved
+                    © 2025 Crispy Chicken Al Rigga. All Rights Reserved
                 </div>
             </div>
         </div>
@@ -1238,7 +1470,7 @@
             
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                document.getElementById("countdown").innerHTML = "<div class='countdown-item'><span class='countdown-value'>EXPIRED</span></div>";
+                document.getElementById("countdown").innerHTML = "<div class='countdown-item'><span class='countdown-value'>OPENED!</span></div>";
             }
         }
         
@@ -1411,20 +1643,6 @@
         
         document.getElementById('notificationClose').addEventListener('click', function() {
             document.getElementById('notification').classList.remove('show');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
         });
         
         // Add animation on scroll
